@@ -41,5 +41,5 @@ systemctl list-timers bemtevi-atualizar.timer --no-pager
 echo
 echo "Pronto. Próximos passos:"
 echo "  teste sem gravar:   scripts/atualizar.sh --simular"
-echo "  rodar agora:        sudo systemctl start bemtevi-atualizar.service"
+echo "  rodar agora:        scripts/atualizar.sh --forcar   (ignora o INTERVALO_DIAS)"
 echo "  ver o resultado:    journalctl -u bemtevi-atualizar.service -n 50 --no-pager"

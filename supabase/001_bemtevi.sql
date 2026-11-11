@@ -132,6 +132,7 @@ returns jsonb language plpgsql stable security definer
 set search_path = public, extensions
 as $$
 declare
+    v_original  text;
     v_digitado  text;
     v_base      text;
     v_achado    record;
@@ -139,7 +140,11 @@ declare
     v_opcoes    jsonb;
     v_limite    integer;
 begin
-    v_digitado := regexp_replace(public.bt_sem_acento(p_texto), '^(bairro|conjunto|conj|cj)\s+', '');
+    -- pontuação vira espaço ("Conj. Ouro Verde") e prefixos genéricos são ignorados
+    v_original := btrim(regexp_replace(
+        regexp_replace(public.bt_sem_acento(p_texto), '[.,;:!?()"]+', ' ', 'g'), '\s+', ' ', 'g'));
+    v_digitado := regexp_replace(v_original,
+        '^((bairro|conjunto|conj|cj|residencial|res|comunidade|loteamento|lot|no|na|do|da)\s+)+', '');
     if v_digitado = '' then
         return jsonb_build_object('status', 'nao_encontrado', 'busca', '-', 'nome', '',
                                   'opcoes', '[]'::jsonb, 'pergunta', '');
@@ -150,7 +155,8 @@ begin
     select * into v_achado
     from public.bt_bairros b
     where b.municipio = p_municipio
-      and (b.busca_bairro in (v_digitado, v_base) or b.variantes && array[v_digitado, v_base])
+      and (b.busca_bairro in (v_original, v_digitado, v_base)
+           or b.variantes && array[v_original, v_digitado, v_base])
     order by b.unidades desc
     limit 1;
     if found then

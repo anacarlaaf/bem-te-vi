@@ -65,7 +65,8 @@ const variantes = lista({{lista_variantes}}).map((v) => String(v ?? "").split("|
 const unidades = lista({{lista_unidades}}).map((n) => Number(n) || 0);
 
 const SUFIXO = /SUFIXO_REGEX/;
-const digitado = semAcento({{bairro}}).replace(/^(bairro|conjunto|conj|cj)\s+/, "");
+const digitado = semAcento(String({{bairro}} ?? "").replace(/[.,;:!?()"]+/g, " "))
+  .replace(/^((bairro|conjunto|conj|cj|residencial|res|comunidade|loteamento|lot|no|na|do|da)\s+)+/, "");
 const semSufixo = digitado.replace(SUFIXO, "");
 const nomesDe = (i) => [chaves[i], ...(variantes[i] || [])];
 

@@ -1,5 +1,5 @@
 [Unit]
-Description=Bem-te-vi: agenda a atualização todo dia às 05:00 de Manaus
+Description=Bem-te-vi: verifica todo dia às 05:00 de Manaus se é dia de atualizar (INTERVALO_DIAS no .env)
 
 [Timer]
 OnCalendar=*-*-* 05:00:00 America/Manaus

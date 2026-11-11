@@ -1,7 +1,7 @@
 {
   "version": "6.1",
   "id": "cmr6zauwh00010aj99p07wqpu",
-  "name": "Chatbot SEMSA",
+  "name": "Chatbot Bem-Te-Vi",
   "events": [
     {
       "id": "g1tbb4w2oswsdv2dpc173tcy",
@@ -52,7 +52,7 @@
                 "type": "p",
                 "children": [
                   {
-                    "text": "Eu sou o Bem-Te-Vi, seu assistente de saúde da SEMSA."
+                    "text": "Eu sou o Bem-Te-Vi, seu assistente de saúde."
                   }
                 ]
               },
@@ -3396,8 +3396,8 @@
       "isBrandingEnabled": true
     },
     "metadata": {
-      "title": "Chatbot para Consulta de Serviços de Saúde da SEMSA",
-      "description": "Chatbot para Consulta de Serviços de Saúde da SEMSA",
+      "title": "Bem-Te-Vi: consulta de serviços de saúde em Manaus",
+      "description": "Encontre unidades de saúde, especialidades e atendimento pelo SUS em Manaus, com dados públicos do CNES.",
       "imageUrl": "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0MjU2MDR8MHwxfHNlYXJjaHwxNXx8aGVhbHRofGVufDB8MHx8fDE3ODMyMTM4OTF8MA&ixlib=rb-4.1.0&q=80&w=1080"
     }
   },
