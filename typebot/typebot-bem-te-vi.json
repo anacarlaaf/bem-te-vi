@@ -1,0 +1,3559 @@
+{
+  "version": "6.1",
+  "id": "cmr6zauwh00010aj99p07wqpu",
+  "name": "Bem-Te-Vi",
+  "events": [
+    {
+      "id": "g1tbb4w2oswsdv2dpc173tcy",
+      "outgoingEdgeId": "ss36lkc0dp5wcsgyqdcfdoeq",
+      "graphCoordinates": {
+        "x": 584.7,
+        "y": -559.61
+      },
+      "type": "start"
+    }
+  ],
+  "groups": [
+    {
+      "id": "ptx72iuc2xqo3f8rs6otyquw",
+      "title": "Group #2",
+      "graphCoordinates": {
+        "x": 1792.8,
+        "y": -75
+      },
+      "blocks": [
+        {
+          "id": "reh01k7u4kzetvnuytycipmf",
+          "outgoingEdgeId": "ogd2u2rrwz52ifr0lxk1gg73",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "0",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "f5uofwb0hpmnz1udbfwyjxrp",
+                  "column": "busca_bairro",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{bairro_busca}}"
+                },
+                {
+                  "id": "ihsmdyvslh9bh811kerpetiu",
+                  "column": "filtro_sus",
+                  "comparisonOperator": "Contains",
+                  "value": "sus"
+                },
+                {
+                  "id": "v3c5ba75uuzpeal2w37d4ivs",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "column": "endereco",
+                "id": "rbe0e6dfsjvroxpd5glzvemm",
+                "variableId": "mfw3dvb1h0xbx8e36sj32lrb"
+              },
+              {
+                "column": "telefone",
+                "id": "n8u2a2qz3rot1sxyjpyaayys",
+                "variableId": "wkugxc2w4o0k2da2vqfq5hrg"
+              },
+              {
+                "column": "nome",
+                "id": "h8mguebp2fhvnoyqlci4662s",
+                "variableId": "cbr4fa6yavtqi3wif32utmvd"
+              }
+            ],
+            "totalRowsToExtract": "All"
+          }
+        }
+      ]
+    },
+    {
+      "id": "wifp2i2vqzcbj4nnz7tq8yd2",
+      "title": "Group #1",
+      "graphCoordinates": {
+        "x": 618.2366666666667,
+        "y": -412.52
+      },
+      "blocks": [
+        {
+          "id": "ue0ifd0tvbdivuzzpqk51fpk",
+          "type": "Set variable",
+          "options": {
+            "variableId": "g8mdd4v30t9nt3w5uzbikcid",
+            "expressionToEvaluate": "return \"Manaus\";",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "pje0m4z4azuawc0jw02ocq7e",
+          "outgoingEdgeId": "mcjb8dh2g13p9p9kivabhqow",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "Zti8lGSMs_",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Oi! 👋"
+                  }
+                ]
+              },
+              {
+                "id": "K5ttnypYZc",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Eu sou o Bem-Te-Vi."
+                  }
+                ]
+              },
+              {
+                "id": "zMCcK6RpJ1",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Posso te ajudar a encontrar informações sobre os postos de saúde de Manaus."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "r0wmd81kxjxh7sghvdwk4nee",
+      "title": "Group #2",
+      "graphCoordinates": {
+        "x": 626.7,
+        "y": -140.89
+      },
+      "blocks": [
+        {
+          "id": "wnwzuhpo1yz8cdlsjc4ekdn2",
+          "outgoingEdgeId": "o6rakb20irwe3gfbtg1b14zc",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "zHfZPb8rJP",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "O que você precisa hoje?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "n0urf9pb7s2g86j021jzmhrv",
+      "title": "Group #3",
+      "graphCoordinates": {
+        "x": 615.31,
+        "y": 11.46
+      },
+      "blocks": [
+        {
+          "id": "pwe9ngum5g42stq16ysaz9q0",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "q8d3exbdbpcllxaos04hrvb4",
+              "outgoingEdgeId": "u8mz2mf9yuvnyakttgfzsnxv",
+              "content": "Encontrar um posto de saúde"
+            },
+            {
+              "id": "o9t3ax7zi9yus77ym50nuy0k",
+              "outgoingEdgeId": "jggk2tslfksb4cm5ia1y00nt",
+              "content": "Horários de atendimento"
+            },
+            {
+              "id": "k41dhj2dhqyhl60ib2kq4nrc",
+              "outgoingEdgeId": "ze2i1318ay22qt23nbb9lhep",
+              "content": "Vacinação"
+            },
+            {
+              "id": "ip5uusrmt21kmpbqtuhs9ive",
+              "outgoingEdgeId": "clpcc1qsx3qgmp28e4kn9wgm",
+              "content": "Consultar Especialidades"
+            },
+            {
+              "id": "j9itwo5x9f0t0ju568ceasjl",
+              "outgoingEdgeId": "ydehupjdhb5dpe9e69wyuw3y",
+              "content": "Documentos necessários"
+            },
+            {
+              "id": "i86hyphaxbt6xqdrp95trz8z",
+              "outgoingEdgeId": "l6nzbwhgtc9s559ppfh8l7ak",
+              "content": "Outra dúvida"
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "z5c0pqea2kxi0k3470k6z9sk",
+      "title": "Group #4",
+      "graphCoordinates": {
+        "x": 982.79,
+        "y": -70.5
+      },
+      "blocks": [
+        {
+          "id": "sefa5ug6s202312ti7hwprwi",
+          "outgoingEdgeId": "d00zrtw83pgek0x4x9xq9oo2",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "u_KESXSyOV",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Show! Me diz o nome do seu bairo que eu te aponto o posto mais próximo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lm5qph45zvsaoio6gxn6yv9c",
+      "title": "Group #5",
+      "graphCoordinates": {
+        "x": 1329.57,
+        "y": -82.07
+      },
+      "blocks": [
+        {
+          "id": "gj5q9oomljwyqmjtgy6ouqcr",
+          "outgoingEdgeId": "aa70gmydxna5dv4136rvuaz2",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite seu bairro...",
+              "button": "Enviar"
+            },
+            "variableId": "p63206fuhswrsckt0hvdm0vo",
+            "isLong": true,
+            "audioClip": {
+              "isEnabled": false,
+              "saveVariableId": "p63206fuhswrsckt0hvdm0vo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hor2u31zuubzz7a0d84cpo35",
+      "title": "Group #7",
+      "graphCoordinates": {
+        "x": 964.8141666666668,
+        "y": 164.13250000000016
+      },
+      "blocks": [
+        {
+          "id": "ko7be110ca6u6bx74qvmpmwz",
+          "outgoingEdgeId": "wgdali0zyhat6v4ffusgpkzf",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "kRLIAV9GEj",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "De qual posto você quer saber o horário?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hupdpptt2almnor9ki7c8kzw",
+      "title": "Group #8",
+      "graphCoordinates": {
+        "x": 1325.7666666666669,
+        "y": 187.51000000000025
+      },
+      "blocks": [
+        {
+          "id": "nlfdibeenrkltkszyfd76vwe",
+          "outgoingEdgeId": "l5ini73howl7hqrgs315zyf5",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite o nome de um posto...",
+              "button": "Enviar"
+            },
+            "variableId": "uugrnthnt86ploxlodm10159"
+          }
+        }
+      ]
+    },
+    {
+      "id": "itmvvipt03o65532udkodqqz",
+      "title": "Group #9",
+      "graphCoordinates": {
+        "x": 2071.3066666666664,
+        "y": 310.93000000000006
+      },
+      "blocks": [
+        {
+          "id": "gvn1c3x8qq05tcr92up6vwp5",
+          "outgoingEdgeId": "ptpwfti507y60bgcw8qhrpr6",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "z5iiQCVvWf",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "O {{posto}} funciona de segunda a sexta, das 7h às 17h."
+                  }
+                ]
+              },
+              {
+                "id": "K42MjCF5cS",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Aos sábados, das 8h às 12h."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "rh9yzk60p23cvira70v2vla2",
+      "title": "Group #10",
+      "graphCoordinates": {
+        "x": 977.7866666666666,
+        "y": 365.34000000000015
+      },
+      "blocks": [
+        {
+          "id": "xpmwnrzoagwt3rej04uyn59q",
+          "outgoingEdgeId": "rcvz2q8aump7c9l15qmyu9ik",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "w2jyvdF2CL",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Sobre qual vacina você quer saber?💉"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "vwaqiffad0qr3uhp7lt9d9g1",
+      "title": "Group #11",
+      "graphCoordinates": {
+        "x": 1335.6266666666668,
+        "y": 382.29
+      },
+      "blocks": [
+        {
+          "id": "uwwn7egew6nsh38xmr4agme7",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "piixnmpwcoy02z8iqspadf46",
+              "outgoingEdgeId": "qy43sfol5gdzcwjmgqm3scvx",
+              "content": "Dengue/Chikungunya"
+            },
+            {
+              "id": "wqgo66lsnxe6v1y8po14ovad",
+              "outgoingEdgeId": "sae3zsx3qegigeztp6yt5r9t",
+              "content": "Covid-19"
+            },
+            {
+              "id": "b2ek0aaglc3fo8xgxdqo8ruy",
+              "outgoingEdgeId": "up87g5uefx0qsb0xmg0vlo5d",
+              "content": "Vacinas de rotina (infantil)"
+            },
+            {
+              "id": "o4asb1kefc1t2l5wew28bc5r",
+              "outgoingEdgeId": "fxsl0tp9h2f5kvl6pgthh3ep",
+              "content": "Outra"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t08qzukw1loyku7h0rxd8inx",
+      "title": "Group #12",
+      "graphCoordinates": {
+        "x": 1820.79,
+        "y": 577.03
+      },
+      "blocks": [
+        {
+          "id": "nae888ojnyowtspf9akpyvjp",
+          "outgoingEdgeId": "pec6lmbd35s1dzkvmtyroy9j",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "WcEvABogYb",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Você pode procurar qualquer posto de saúde da sua região, de segunda a sexta, das 8h às 16h. "
+                  }
+                ]
+              },
+              {
+                "id": "ZNdhBM6YNm",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Leve a carteirinha de vacinação e um documento com fotto."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bywkljk4l4sr8fgyqox226co",
+      "title": "Group #13",
+      "graphCoordinates": {
+        "x": 1728.2866666666666,
+        "y": 947.98
+      },
+      "blocks": [
+        {
+          "id": "bvwvo9vcfcsjngrfqfrvs5dq",
+          "outgoingEdgeId": "zxalvcte1602dtpgproites8",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "oYEHUnmgid",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Certo! Digite o nome da vacina que gostaria de saber mais informações sobre"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "xjy2l2eh8b3kjfqc4u4pfeum",
+      "title": "Group #14",
+      "graphCoordinates": {
+        "x": 2072.9666666666662,
+        "y": 1003.63
+      },
+      "blocks": [
+        {
+          "id": "jcx9qc1071rqiifxs7p3ocph",
+          "outgoingEdgeId": "l5xvr85ue2zvhvuz82yfaqv6",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite o nome da vacina..."
+            },
+            "variableId": "afacfhw7xhfshjt1ae49wa05"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ayl6kgs0fvjpoai89yt1laom",
+      "title": "Group #15",
+      "graphCoordinates": {
+        "x": 2436.939166666667,
+        "y": 1035.6325000000002
+      },
+      "blocks": [
+        {
+          "id": "bv0buptioqss79d4a95mc262",
+          "outgoingEdgeId": "tqlz28dzg02p3wpqi8j0wehk",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "ALt9eLeXlL",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Não temos informações sobre esta vacina, porém colocaremos em nosso banco de dados para consultas futuras!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "yqzrwmscl97n38gll86s95fi",
+      "title": "Group #16",
+      "graphCoordinates": {
+        "x": 881.9466666666667,
+        "y": 609.5500000000002
+      },
+      "blocks": [
+        {
+          "id": "t1ibk8v3nz767ubyufv2ctsm",
+          "outgoingEdgeId": "ajq9kf47sq7i2o9wslcscro8",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "I1pZZKzmnH",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Para a maioria dos atendimentos no posto de saúde, leve:"
+                  }
+                ]
+              },
+              {
+                "id": "FHi42_jNif",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "✅ Documento de identidade com foto\n✅ CPF\n✅ Comprovante de residência\n✅ Cartão do SUS (se tiver)"
+                  }
+                ]
+              },
+              {
+                "id": "h7Y7dV5HVO",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Não tem o Cartão do SUS ainda? Você pode fazer na hora, no próprio posto."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "z402ryi41wxfa2zt4og4q47w",
+      "title": "Group #17",
+      "graphCoordinates": {
+        "x": 532.8141666666667,
+        "y": 648.8825000000002
+      },
+      "blocks": [
+        {
+          "id": "xr3ysjsbg9d56ixpiu2az34h",
+          "outgoingEdgeId": "tsi18cqkh7lue9vhdfn3b625",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "QpPN1g113v",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Sem problemas! Digite sua pergunta abaixo que nossa equipe vai te responder em breve:"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "y7mgrayd135uc14c87zys2kh",
+      "title": "Group #18",
+      "graphCoordinates": {
+        "x": 443.1166666666667,
+        "y": 876.8000000000001
+      },
+      "blocks": [
+        {
+          "id": "vv4bhw8otaxxnd31xpy25ysy",
+          "outgoingEdgeId": "kw5msetxyy7r4tmmcrrwxiuh",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite sua dúvida...",
+              "button": "Enviar"
+            },
+            "variableId": "qmwtlzv4p91wh7fc7xme2dco"
+          }
+        }
+      ]
+    },
+    {
+      "id": "jikikuxkmap4z8t891qj7if1",
+      "title": "Group #19",
+      "graphCoordinates": {
+        "x": 530.4079166666667,
+        "y": 1153.4137500000002
+      },
+      "blocks": [
+        {
+          "id": "ytj6er99vb79w4eqj4r3s516",
+          "outgoingEdgeId": "nbp6i1mcopxvyvdagjz1d99u",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "oGYDeQtTK3",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Anotado! Obrigado por ajudar a melhorar esse serviço."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "r9oyq7gp7ns3j7wdmnp4r729",
+      "title": "Group #20",
+      "graphCoordinates": {
+        "x": 1653.84,
+        "y": 1386.97
+      },
+      "blocks": [
+        {
+          "id": "pk20svub20d5k8avpov3iwim",
+          "outgoingEdgeId": "af4xvl6tsu9i32y8x95bd0qi",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "B_z4B1mbbi",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Essa resposta te ajudou?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lgqq5j22jpyiegoex7x4tujd",
+      "title": "Group #21",
+      "graphCoordinates": {
+        "x": 189.19,
+        "y": 1608.23
+      },
+      "blocks": [
+        {
+          "id": "vcyi8mxdmtta19hprnpcmnhc",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "viaz9pone2fnrnrd1w4bkfev",
+              "outgoingEdgeId": "qhaoysd90chye0gykczn5kxu",
+              "content": "👍 Sim, resolveu minha dúvida"
+            },
+            {
+              "id": "oe4qs7n45w1780l5bpciywpq",
+              "outgoingEdgeId": "az9kqaa6n63fgs11y6hlcisy",
+              "content": "👎 Não, ainda tenho dúvidas"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s805eutf5nh97jrucoytyccl",
+      "title": "Group #22",
+      "graphCoordinates": {
+        "x": 1447.288125,
+        "y": 1705.2418750000002
+      },
+      "blocks": [
+        {
+          "id": "yau54tk668t0973clbo2in8s",
+          "outgoingEdgeId": "q5siun0e68wd8ttkxdziau2t",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "KQfhooIOjb",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Que ótimo! Se precisar de novo, é só chamar. 😊"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "z8yxvmjyokw7a2t558uenjjt",
+      "title": "Group #23",
+      "graphCoordinates": {
+        "x": 1432.288125,
+        "y": 1927.741875
+      },
+      "blocks": [
+        {
+          "id": "gq1pemqiorexp2uuchxvcyyf",
+          "outgoingEdgeId": "rmbyd6n07riitfr7w3dmugyg",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "2AzWkdx_2F",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Poxa, desculpa! Me conta rapidinho o que faltou:"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nwms2c4wmdhvku8bkammho6h",
+      "title": "Group #24",
+      "graphCoordinates": {
+        "x": 1807.0928125,
+        "y": 2023.991875
+      },
+      "blocks": [
+        {
+          "id": "ioo6nzsdfadbb8ge1nnfkwci",
+          "outgoingEdgeId": "e302nuk31q0kawa7jfplh9x1",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite seu feedback...",
+              "button": "Enviar"
+            },
+            "variableId": "athubdm6rs2nlwbq0jz1apyi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "tdgklmo09zww1vglvyya3sbf",
+      "title": "Group #25",
+      "graphCoordinates": {
+        "x": 2210.256875,
+        "y": 2072.5075
+      },
+      "blocks": [
+        {
+          "id": "wizzhd50u5n92efxosdgz1i8",
+          "outgoingEdgeId": "yq4udbl80rsej7s8dc3q9op0",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "yxLavUcrUw",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Obrigado pelo feedback! Vamos usar isso para melhorar."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b9ed0h59vq7lehwk2jrfekhu",
+      "title": "Group #26",
+      "graphCoordinates": {
+        "x": 1838.0366666666664,
+        "y": 2311.1800000000003
+      },
+      "blocks": [
+        {
+          "id": "ftf7o828bnknvqrbmwob7egk",
+          "type": "Webhook",
+          "options": {
+            "isCustomBody": true,
+            "webhook": {
+              "headers": [
+                {
+                  "id": "z1b4huahhndi237ndhn5siaz",
+                  "key": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                }
+              ],
+              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/interacoes",
+              "body": "{\n  \"bairro\": \"{{bairro}}\",\n  \"duvida\": \"{{duvida_livre}}\",\n  \"feedback\": \"{{feedback_negativo}}\",\n  \"resposta_util\": \"{{resposta_util}}\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ybclgxjchjz6jv5p23rr9zzw",
+      "title": "Group #36",
+      "graphCoordinates": {
+        "x": 705.2266666666667,
+        "y": -2851.39
+      },
+      "blocks": [
+        {
+          "id": "jcs0wgp5qserxinp61ejb0zf",
+          "outgoingEdgeId": "yr49d0md1xziavj837eqomrv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "-kg7R4cYJu",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Perdão! Ainda não temos informção sobre esse bairro, mas colocaremos em nosso banco de dados para mais informações futuras."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d4cry0ore5pw7gcig9o8ccey",
+      "title": "Group #31",
+      "graphCoordinates": {
+        "x": 1459.5466666666666,
+        "y": -2622.69
+      },
+      "blocks": [
+        {
+          "id": "mtgels7o0oktzz9yp80ujjtk",
+          "outgoingEdgeId": "v3jy9oic9m94v3qngs4qwdbn",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "coxuaopv326697pz840t08w2",
+              "content": {
+                "logicalOperator": "OR",
+                "comparisons": [
+                  {
+                    "id": "sem1atorwmmtkn17n0ci67qr",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "Japiim 2"
+                  },
+                  {
+                    "id": "dh5pk51swyp5h14md8wdkrcu",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "Japiim II"
+                  },
+                  {
+                    "id": "j29k4sf9kl15vxkf2axhmsfa",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "japiim 2"
+                  },
+                  {
+                    "id": "inxial35wuy75ub27z9vond5",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "japiim II"
+                  },
+                  {
+                    "id": "drcqtis69ebcmxe08n3g05zy",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "japiim ii"
+                  },
+                  {
+                    "id": "nmcya2qchj70vimt7oo52kro",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "Japiinlândia"
+                  },
+                  {
+                    "id": "yxosagu5q7amxgnsrxcl70cp",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "japiinlândia"
+                  },
+                  {
+                    "id": "c1bmxokkd8ynm1dui87127cy",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "Japiinlandia"
+                  },
+                  {
+                    "id": "mzncqlb08in87olq5s19usnc",
+                    "variableId": "p63206fuhswrsckt0hvdm0vo",
+                    "comparisonOperator": "Equal to",
+                    "value": "japiinlandia"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ex8gqv8e01h5n24xqn02yics",
+      "title": "Group #31",
+      "graphCoordinates": {
+        "x": 2248.47,
+        "y": -296.84
+      },
+      "blocks": [
+        {
+          "id": "w7c8fnb8i3e4qfrdrwqqxzad",
+          "outgoingEdgeId": "uwo7kmxg1ltqpinycfflv28d",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "yf8aes5k6fhotjeppr8p9leq",
+              "outgoingEdgeId": "cy8lf39q72imspgvgd51370w",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "st9qicpr36fm5sj0v8zrxzx3",
+                    "variableId": "mfw3dvb1h0xbx8e36sj32lrb",
+                    "comparisonOperator": "Is empty"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liyfgdrrnayx7ozljndosarw",
+      "title": "Group #43",
+      "graphCoordinates": {
+        "x": 3029.78,
+        "y": -40.16
+      },
+      "blocks": [
+        {
+          "id": "uwcsvg3hm4l5otm6fq2ssfje",
+          "outgoingEdgeId": "z9k5qa1v17scudqiueoqgglv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "URfMmcmh4c",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Encontrei essas opções no bairro {{bairro_nome}}:"
+                  }
+                ]
+              },
+              {
+                "id": "xV59TOMb6C",
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "SZvQ1dp1NX",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{resultado}}"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fsakiazy3n4gruwii9lv3k9f",
+      "title": "Group #33",
+      "graphCoordinates": {
+        "x": 2645.37,
+        "y": -286.75
+      },
+      "blocks": [
+        {
+          "id": "wrgff4bbjooimgulcr0v46qh",
+          "outgoingEdgeId": "mh9c9fnc5veqabuxg7pexmg0",
+          "type": "Set variable",
+          "options": {
+            "variableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "expressionToEvaluate": "const comoLista = (v) =>\n  Array.isArray(v) ? v : (v === undefined || v === null || v === \"\" ? [] : [v]);\n\nconst nomes = comoLista({{nome}});\nconst enderecos = comoLista({{endereco}});\nconst telefones = comoLista({{telefone}});\n\nconst total = Math.min(5, nomes.length);\nconst partes = [];\n\nfor (let i = 0; i < total; i++) {\n  partes.push(\n    `🏥 ${nomes[i] || \"Nome não informado\"}\\n` +\n    `📍 ${enderecos[i] || \"Endereço não informado\"}\\n` +\n    `📞 ${telefones[i] || \"Telefone não informado\"}`\n  );\n}\n\nlet resposta = partes.join(\"\\n\\n\");\n\nif (nomes.length > total) {\n  resposta += `\\n\\nMostrando ${total} de ${nomes.length} unidades encontradas.`;\n}\n\nreturn resposta;",
+            "isCode": true,
+            "saveErrorInVariableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "type": "Custom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cplobabgcou7v55c4dynzklo",
+      "title": "Group #4",
+      "graphCoordinates": {
+        "x": 1302.24,
+        "y": -815.57
+      },
+      "blocks": [
+        {
+          "id": "qwwo1kjlf0q8q7kpnlzc968f",
+          "outgoingEdgeId": "w0bgg0hai95aqdwv4822meqr",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "u_KESXSyOV",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Bacana! Qual especialidade você procura?"
+                  }
+                ]
+              },
+              {
+                "id": "e-NSF7PuoM",
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "B2L5LjOmXg",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ex.: Saude Mental,  Clínico, Fiseoterapia, etc"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ersbk3df08xw7x9oysrvs5fw",
+      "title": "Group #5",
+      "graphCoordinates": {
+        "x": 1467.37,
+        "y": -500.01
+      },
+      "blocks": [
+        {
+          "id": "dn18ga1z9k6q3bmizltdf6c5",
+          "outgoingEdgeId": "vgfvrv0swhqreob30wjt1jqy",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite a especialidade...",
+              "button": "Enviar"
+            },
+            "variableId": "vghdt0wmzu3ssilndwr1zuake",
+            "isLong": true,
+            "audioClip": {
+              "isEnabled": false,
+              "saveVariableId": "p63206fuhswrsckt0hvdm0vo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "gi0736h7bt90w3medjafnk10",
+      "title": "Group #2",
+      "graphCoordinates": {
+        "x": 2299.25,
+        "y": -726.8
+      },
+      "blocks": [
+        {
+          "id": "hugnekrcpprcjiwvhdk8lw2l",
+          "type": "Set variable",
+          "options": {
+            "variableId": "kp3xvkvzrgol0w82lk2n7h9g",
+            "expressionToEvaluate": "const r = String({{resposta_sus}} ?? \"\");\nreturn r.includes(\"Sim\") ? \"sus\" : \"todos\";",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "yt8qzpky32orwixz2c9ros7y",
+          "type": "Set variable",
+          "options": {
+            "variableId": "rb8z3v6dixfwuxx8l2ddh0uy",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\nreturn normalizarBusca({{especialidade}});",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "nceb30jhdyvrwv7398liih86",
+          "outgoingEdgeId": "fez1xqkrq8gz9ganvkms6uoe",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "0",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "hqo1vsmado8e7flqhrrpzlk3",
+                  "column": "busca_servicos",
+                  "comparisonOperator": "Contains",
+                  "value": "{{especialidade_busca}}"
+                },
+                {
+                  "id": "damd270stlpq2wgxo05qpahk",
+                  "column": "busca_bairro",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{bairro_busca}}"
+                },
+                {
+                  "id": "w3cd5glqj5sxvwvm4w3zkwde",
+                  "column": "filtro_sus",
+                  "comparisonOperator": "Contains",
+                  "value": "{{filtro_sus}}"
+                },
+                {
+                  "id": "dienfnvuprt77ggkg4w58rhn",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "column": "endereco",
+                "id": "rbe0e6dfsjvroxpd5glzvemm",
+                "variableId": "mfw3dvb1h0xbx8e36sj32lrb"
+              },
+              {
+                "column": "telefone",
+                "id": "n8u2a2qz3rot1sxyjpyaayys",
+                "variableId": "wkugxc2w4o0k2da2vqfq5hrg"
+              },
+              {
+                "column": "nome",
+                "id": "h8mguebp2fhvnoyqlci4662s",
+                "variableId": "cbr4fa6yavtqi3wif32utmvd"
+              }
+            ],
+            "totalRowsToExtract": "All"
+          }
+        }
+      ]
+    },
+    {
+      "id": "t1txodz6jzri6k1j56unisny",
+      "title": "Group #5",
+      "graphCoordinates": {
+        "x": 1892.76,
+        "y": -723.3
+      },
+      "blocks": [
+        {
+          "id": "bb5q0yxbedjz036zu9kmr65e",
+          "outgoingEdgeId": "pk0vx3gvyxancbzhu2llqprn",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite seu bairro...",
+              "button": "Enviar"
+            },
+            "variableId": "p63206fuhswrsckt0hvdm0vo",
+            "isLong": true,
+            "audioClip": {
+              "isEnabled": false,
+              "saveVariableId": "p63206fuhswrsckt0hvdm0vo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lcbbn26senr3gylc474bwm3c",
+      "title": "Group #4",
+      "graphCoordinates": {
+        "x": 1782.86,
+        "y": -419.49
+      },
+      "blocks": [
+        {
+          "id": "y5ru8iavjuhr5j76k740mz2g",
+          "outgoingEdgeId": "y2s35czlptjsaaksbgvien2f",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "u_KESXSyOV",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Show! Qual o seu bairro?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "df4ct7tem0b5j2f0fp4feae1",
+      "title": "Group #31",
+      "graphCoordinates": {
+        "x": 2718.25,
+        "y": -783.27
+      },
+      "blocks": [
+        {
+          "id": "ru0zuuneqqcxhdrslgu9jwic",
+          "outgoingEdgeId": "t43ctyn5n5g2yiw43sw7lqvi",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "x5b497d75pvignw0h9vpog0v",
+              "outgoingEdgeId": "v9d3ge81r17ku2jfz3d90lin",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "st9qicpr36fm5sj0v8zrxzx3",
+                    "variableId": "mfw3dvb1h0xbx8e36sj32lrb",
+                    "comparisonOperator": "Is empty"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jaxk5pwtudnu23dh4lrry1dt",
+      "title": "Group #33",
+      "graphCoordinates": {
+        "x": 3209.16,
+        "y": -762.59
+      },
+      "blocks": [
+        {
+          "id": "foxgihtrwrzbfjp6hppzrmzo",
+          "outgoingEdgeId": "ihn46aa52qcrrzgrffnholw0",
+          "type": "Set variable",
+          "options": {
+            "variableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "expressionToEvaluate": "const comoLista = (v) =>\n  Array.isArray(v) ? v : (v === undefined || v === null || v === \"\" ? [] : [v]);\n\nconst nomes = comoLista({{nome}});\nconst enderecos = comoLista({{endereco}});\nconst telefones = comoLista({{telefone}});\n\nconst total = Math.min(5, nomes.length);\nconst partes = [];\n\nfor (let i = 0; i < total; i++) {\n  partes.push(\n    `🏥 ${nomes[i] || \"Nome não informado\"}\\n` +\n    `📍 ${enderecos[i] || \"Endereço não informado\"}\\n` +\n    `📞 ${telefones[i] || \"Telefone não informado\"}`\n  );\n}\n\nlet resposta = partes.join(\"\\n\\n\");\n\nif (nomes.length > total) {\n  resposta += `\\n\\nMostrando ${total} de ${nomes.length} unidades encontradas.`;\n}\n\nreturn resposta;",
+            "isCode": true,
+            "saveErrorInVariableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "type": "Custom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bwoawm4lcdgooyki0pps4x22",
+      "title": "Group #43",
+      "graphCoordinates": {
+        "x": 3747.95,
+        "y": -733.7
+      },
+      "blocks": [
+        {
+          "id": "cem90304mok3ql4g88ibf0l3",
+          "outgoingEdgeId": "izmv5ssx43spt51pmrg0zls5",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "URfMmcmh4c",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Encontrei essas opções para a especialidade \"{{especialidade}}\" no bairro \"{{bairro_nome}}\":"
+                  }
+                ]
+              },
+              {
+                "id": "xV59TOMb6C",
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "SZvQ1dp1NX",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{resultado}}"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "row2iifnp02optqnynhbehzu",
+      "title": "Group #2",
+      "graphCoordinates": {
+        "x": 3140.18,
+        "y": -1223.36
+      },
+      "blocks": [
+        {
+          "id": "ourlohxyrk8dl2vko0sn21tp",
+          "outgoingEdgeId": "soclldgnbf9mue8caqnnj34g",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "0",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "rsryo4rcb1kjtgq01tee13n3",
+                  "column": "busca_servicos",
+                  "comparisonOperator": "Contains",
+                  "value": "{{especialidade_busca}}"
+                },
+                {
+                  "id": "b1php0xi5bj5d5e3h0y4vpw2",
+                  "column": "filtro_sus",
+                  "comparisonOperator": "Contains",
+                  "value": "{{filtro_sus}}"
+                },
+                {
+                  "id": "g2utvg9ku8s63e1ocjxzefli",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "column": "endereco",
+                "id": "rbe0e6dfsjvroxpd5glzvemm",
+                "variableId": "mfw3dvb1h0xbx8e36sj32lrb"
+              },
+              {
+                "column": "telefone",
+                "id": "n8u2a2qz3rot1sxyjpyaayys",
+                "variableId": "wkugxc2w4o0k2da2vqfq5hrg"
+              },
+              {
+                "column": "nome",
+                "id": "h8mguebp2fhvnoyqlci4662s",
+                "variableId": "cbr4fa6yavtqi3wif32utmvd"
+              }
+            ],
+            "totalRowsToExtract": "All"
+          }
+        }
+      ]
+    },
+    {
+      "id": "k8ztp25cof6czwbe4pdirfvl",
+      "title": "Group #31",
+      "graphCoordinates": {
+        "x": 3721.26,
+        "y": -1221.19
+      },
+      "blocks": [
+        {
+          "id": "kwkg86clulfs6c024nuoodzk",
+          "outgoingEdgeId": "bvbrcsxjyzev2z0uc3is7t8x",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "l7w4ax1hw9thvdtwozu32phl",
+              "outgoingEdgeId": "iiyezbtvo2dkifoepkqtagsw",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "st9qicpr36fm5sj0v8zrxzx3",
+                    "variableId": "mfw3dvb1h0xbx8e36sj32lrb",
+                    "comparisonOperator": "Is empty"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lxp9wmamfmn9h66cddv0shfm",
+      "title": "Group #33",
+      "graphCoordinates": {
+        "x": 4245.36,
+        "y": -1006.98
+      },
+      "blocks": [
+        {
+          "id": "oo8as0rkq6m5xi21trbw78c6",
+          "outgoingEdgeId": "zxt0lvnvf4cqxl2h8jn4pmq5",
+          "type": "Set variable",
+          "options": {
+            "variableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "expressionToEvaluate": "const comoLista = (v) =>\n  Array.isArray(v) ? v : (v === undefined || v === null || v === \"\" ? [] : [v]);\n\nconst nomes = comoLista({{nome}});\nconst enderecos = comoLista({{endereco}});\nconst telefones = comoLista({{telefone}});\n\nconst total = Math.min(5, nomes.length);\nconst partes = [];\n\nfor (let i = 0; i < total; i++) {\n  partes.push(\n    `🏥 ${nomes[i] || \"Nome não informado\"}\\n` +\n    `📍 ${enderecos[i] || \"Endereço não informado\"}\\n` +\n    `📞 ${telefones[i] || \"Telefone não informado\"}`\n  );\n}\n\nlet resposta = partes.join(\"\\n\\n\");\n\nif (nomes.length > total) {\n  resposta += `\\n\\nMostrando ${total} de ${nomes.length} unidades encontradas.`;\n}\n\nreturn resposta;",
+            "isCode": true,
+            "saveErrorInVariableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "type": "Custom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "x5f1ezz239gdm90bo882bepc",
+      "title": "Group #43",
+      "graphCoordinates": {
+        "x": 4669.06,
+        "y": -975.95
+      },
+      "blocks": [
+        {
+          "id": "pztziea4pj0jww1682yh6isi",
+          "outgoingEdgeId": "if756w93zqa7j7gv1atpii8v",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "URfMmcmh4c",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Poxa! Não encontrei resultados no seu bairro. Mas essas unidades atendem a especialidade \"{{especialidade}}\":"
+                  }
+                ]
+              },
+              {
+                "id": "xV59TOMb6C",
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "SZvQ1dp1NX",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{resultado}}"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "n2wal0x8vwroysbhw1htihti",
+      "title": "Group #45",
+      "graphCoordinates": {
+        "x": 4123.77,
+        "y": -1534.01
+      },
+      "blocks": [
+        {
+          "id": "q644fbfsweflu59w0ftnmpca",
+          "outgoingEdgeId": "dwh09k3l2k0e9shlh5h5lrim",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "ALt9eLeXlL",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Não temos informações sobre esta especialidade, porém colocaremos em nosso banco de dados para consultas futuras!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2fxpfxq98g8re79htc2ozsv",
+      "title": "Group #4",
+      "graphCoordinates": {
+        "x": 848.39,
+        "y": -912.25
+      },
+      "blocks": [
+        {
+          "id": "jt9xk918jvrom3cguahpqc2p",
+          "outgoingEdgeId": "srv9wkznducnp9zg83gualcv",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "5hYhiSt09R",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "O que você gostaria de saber?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b7du7kd46aev26jaujdcavwe",
+      "title": "Group #3",
+      "graphCoordinates": {
+        "x": 874.73,
+        "y": -610.09
+      },
+      "blocks": [
+        {
+          "id": "ylglrurpxkp8kympqbuhsc0v",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "uc15ugjr2g2h7dj8bbmmjvdj",
+              "outgoingEdgeId": "s33dovqu6t1aitoa8kyrbflv",
+              "content": "As especialidades disponíveis em uma unidade de saúde."
+            },
+            {
+              "id": "h6hz2dvndzoy8v0ki17q2roc",
+              "outgoingEdgeId": "ykpa00vh9hemtif7rvigyjic",
+              "content": "Quais unidades de saúde que atendam uma especialidade específica."
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vjz52s1g1ft2ip1mtpzddpvy",
+      "title": "Group #4",
+      "graphCoordinates": {
+        "x": 1364.82,
+        "y": -1226.46
+      },
+      "blocks": [
+        {
+          "id": "b35qevltn3l12up34ewbvcmp",
+          "outgoingEdgeId": "wypftvorcmrbmfyryvnsbj10",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "u_KESXSyOV",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ótimo! Qual é o nome da unidade de saúde que você deseja consultar?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "qrkz2axmnm75lk8leht23qdb",
+      "title": "Group #5",
+      "graphCoordinates": {
+        "x": 1798.44,
+        "y": -1282.49
+      },
+      "blocks": [
+        {
+          "id": "jw005v17fzma4hyt5e8203z3",
+          "outgoingEdgeId": "gg0myelqwn9q3lnlpwpi1shk",
+          "type": "text input",
+          "options": {
+            "labels": {
+              "placeholder": "Digite o nome da unidade...",
+              "button": "Enviar"
+            },
+            "variableId": "pthdhd56rq3sqa8ytws5wb94",
+            "isLong": true,
+            "audioClip": {
+              "isEnabled": false,
+              "saveVariableId": "p63206fuhswrsckt0hvdm0vo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "v13xnur38c5wj71pnsigjm86",
+      "title": "Group #2",
+      "graphCoordinates": {
+        "x": 2316.97,
+        "y": -1351.47
+      },
+      "blocks": [
+        {
+          "id": "vofwwnc21o0z5qru54d8wz42",
+          "type": "Set variable",
+          "options": {
+            "variableId": "mhphj3muurmybd2qe4pa8hye",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\nreturn normalizarBusca({{unidade}});",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "zo7lz0g1zahwfeu0c7i54fvz",
+          "outgoingEdgeId": "mb9carhgw5tl9v1mjst5qy07",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "0",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "uk55dmcxxbw01pddhcvsqame",
+                  "column": "busca_nome",
+                  "comparisonOperator": "Contains",
+                  "value": "{{unidade_busca}}"
+                },
+                {
+                  "id": "nyrid3dnkn35xycuvfmh07wp",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "column": "endereco",
+                "id": "rbe0e6dfsjvroxpd5glzvemm",
+                "variableId": "mfw3dvb1h0xbx8e36sj32lrb"
+              },
+              {
+                "column": "telefone",
+                "id": "n8u2a2qz3rot1sxyjpyaayys",
+                "variableId": "wkugxc2w4o0k2da2vqfq5hrg"
+              },
+              {
+                "column": "nome",
+                "id": "h8mguebp2fhvnoyqlci4662s",
+                "variableId": "cbr4fa6yavtqi3wif32utmvd"
+              },
+              {
+                "column": "especialidades",
+                "id": "b7ash7utmq09r149ehlqlvn6",
+                "variableId": "kleemi5qf87idl8z8fssol53"
+              }
+            ],
+            "totalRowsToExtract": "First"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zl7w1qhy3k49l3n72xd8q8ab",
+      "title": "Group #31",
+      "graphCoordinates": {
+        "x": 2681.2,
+        "y": -1628.19
+      },
+      "blocks": [
+        {
+          "id": "bfuutklyr3g2kwqksn2a43nw",
+          "outgoingEdgeId": "gya9nb6jgzb6ofx0ough6tb8",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "pfwft0oxbzr8xmcowu9or8a9"
+            },
+            {
+              "id": "zqq3em9zgp8qaw1as3jav4s1",
+              "outgoingEdgeId": "uyf44qgghjmn4m8on60u1bb8",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "st9qicpr36fm5sj0v8zrxzx3",
+                    "variableId": "mfw3dvb1h0xbx8e36sj32lrb",
+                    "comparisonOperator": "Is empty"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r3lircltnjwpww2cnbujh98n",
+      "title": "Group #45",
+      "graphCoordinates": {
+        "x": 3250.19,
+        "y": -1719.51
+      },
+      "blocks": [
+        {
+          "id": "b7emem1q1sibksudhnpnesfa",
+          "outgoingEdgeId": "jtt1k6jp1ltolt0g2cpljfwg",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "ALt9eLeXlL",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Desculpe. Não temos informações sobre  as especialidades dessa unidade, porém colocaremos em nosso banco de dados para consultas futuras!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "nod7s0nfdltwsvmja921kt21",
+      "title": "Group #33",
+      "graphCoordinates": {
+        "x": 3595.15,
+        "y": -2082.56
+      },
+      "blocks": [
+        {
+          "id": "l2ngnz2225dxf2vyq9z5q79g",
+          "outgoingEdgeId": "dly6s0g8vsdmojhfavojlnhl",
+          "type": "Set variable",
+          "options": {
+            "variableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "expressionToEvaluate": "const primeiro = (v) => (Array.isArray(v) ? v[0] : v);\n\nconst nome = primeiro({{nome}}) || \"Nome não informado\";\nconst endereco = primeiro({{endereco}}) || \"Endereço não informado\";\nconst telefone = primeiro({{telefone}}) || \"Telefone não informado\";\n\nconst lista = String(primeiro({{todas_especialidades}}) || \"\")\n  .split(\"|\")\n  .map((x) => x.trim())\n  .filter(Boolean);\n\nconst funcoes = lista.length\n  ? lista.map((x) => `• ${x}`).join(\"\\n\")\n  : \"Não informado\";\n\nreturn `🏥 ${nome}\\n📍 ${endereco}\\n📞 ${telefone}\\n\\n🩺 Especialidades:\\n${funcoes}`;",
+            "isCode": true,
+            "saveErrorInVariableId": "n9qhxoo5mpg1nb6mr9rgvifu",
+            "type": "Custom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dokurfvap0mm5nra5nipcucj",
+      "title": "Group #43",
+      "graphCoordinates": {
+        "x": 4085.47,
+        "y": -1905.81
+      },
+      "blocks": [
+        {
+          "id": "dj5grqch9illdwxjkdgm0bav",
+          "outgoingEdgeId": "cww2zlc5rlvonyaohnu6stn9",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "8IsxE1v-z1",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Encontrei as seguintes informações sobre a unidade e especialidades disponíveis:"
+                  }
+                ]
+              },
+              {
+                "id": "xV59TOMb6C",
+                "type": "p",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              },
+              {
+                "id": "SZvQ1dp1NX",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{resultado}}"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ye5ozt6v55lbsk5vhyyr4boa",
+      "title": "Group #54",
+      "graphCoordinates": {
+        "x": 1831.47,
+        "y": 1572.15
+      },
+      "blocks": [
+        {
+          "id": "gglouch9z9xgl1endvogh1ii",
+          "outgoingEdgeId": "oak5hjg3ccpf7pesd7cqnqgi",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "wWZqSLuyU3",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Deseja voltar ao menu inicial?"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "m96w5x8kujhdnd9lkxhgy7sb",
+      "title": "Group #55",
+      "graphCoordinates": {
+        "x": 2202.53,
+        "y": 1590.38
+      },
+      "blocks": [
+        {
+          "id": "vzwnkaxog5282na2tg31euqs",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "n199cvl6x09c1f03ahxdhpif",
+              "outgoingEdgeId": "t4k61aa8kuob93e46tmxjrh5",
+              "content": "Sim, voltar ao menu inicial"
+            },
+            {
+              "id": "w4kmdckkxadpjjvsfwmbwer5",
+              "outgoingEdgeId": "swf8db7zzpqa9d5rh4js5la8",
+              "content": "Não, encerrar atendimento"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wz6jc78v0lbhdt1qn9jl7wvk",
+      "title": "Group #56",
+      "graphCoordinates": {
+        "x": 2529.65,
+        "y": 1615.72
+      },
+      "blocks": [
+        {
+          "id": "pjch862wfln8ajuk0cpttrqt",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "x9zpXhMlgg",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Ótimo! Atendimento encerrado"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sivwpvs7hzioykl1cq99chj7",
+      "title": "Posto: bairro escolhido",
+      "graphCoordinates": {
+        "x": 2029.57,
+        "y": 617.9300000000001
+      },
+      "blocks": [
+        {
+          "id": "isv871yzoyn6qicatvazccbl",
+          "type": "Set variable",
+          "options": {
+            "variableId": "qiyhe7ur23gdppq0y9dom5ig",
+            "expressionToEvaluate": "const e = {{bairro_escolhido}};\nreturn e === \"Nenhum desses\" ? \"\" : e;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "ofgq5c34dxtad1ior56fao72",
+          "type": "Set variable",
+          "options": {
+            "variableId": "jp89uzfk8ut0cvs4f8cgvyie",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\nconst e = {{bairro_escolhido}};\nreturn e === \"Nenhum desses\" ? \"-\" : semAcento(e);",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "c5nf4zw9xa3kx7eedtjvzhwj",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "pj6bw3bme9fpzue8yfbntpbn",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "z8bmyymu5907if2gog72oy0i",
+                    "variableId": "gf1t2tala753lc58drc11ert",
+                    "comparisonOperator": "Equal to",
+                    "value": "Nenhum desses"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "f2d54i3qk2iagl58kxo9t7e8"
+            }
+          ],
+          "outgoingEdgeId": "fu9bvm2p9e6gbps3y70hp87w"
+        }
+      ]
+    },
+    {
+      "id": "exa11dpg8sbi4q2y9v86wzs3",
+      "title": "Posto: escolher bairro",
+      "graphCoordinates": {
+        "x": 1679.57,
+        "y": 617.9300000000001
+      },
+      "blocks": [
+        {
+          "id": "v4zklookep7y6wktakpuxqph",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "p280xkxwd8",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{bairro_pergunta}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "iq4fmyzycwtiqj7yhl1c32oc",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "s5lxo6qjiujv6oh9sdbdw2pc",
+              "content": "(opções do bairro)"
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false,
+            "dynamicVariableId": "mvqjt7ye511mkfazz81sdw4s",
+            "variableId": "gf1t2tala753lc58drc11ert"
+          },
+          "outgoingEdgeId": "rqf5q14j1ripzim6cfnfholq"
+        }
+      ]
+    },
+    {
+      "id": "vyedwb2bne6loh25nsjf678k",
+      "title": "Posto: reconhecer bairro",
+      "graphCoordinates": {
+        "x": 1329.57,
+        "y": 617.9300000000001
+      },
+      "blocks": [
+        {
+          "id": "bhp6vz41nam148p0tvhhpbmy",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "7001",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "m0479t6vxdp5gjlqm5k8p4q0",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "id": "b9mx2x18hafeyuhz1gv0e38d",
+                "column": "bairro",
+                "variableId": "a7u6n7hv3izky22ubtxcxapr"
+              },
+              {
+                "id": "n8w3zp08j3trp0j43d5iqvnb",
+                "column": "busca_bairro",
+                "variableId": "kgh2m5zja8dzr1yxr2dhylur"
+              },
+              {
+                "id": "qm9tmqlizl08yg0jv1v93kmk",
+                "column": "variantes",
+                "variableId": "wtj9tze5r5uqpgb7r3ocwbfu"
+              },
+              {
+                "id": "jdiuovw1n6kvpuc8d1wjcitf",
+                "column": "unidades",
+                "variableId": "nqvkizzqy72wx7ptx63cfl0u"
+              }
+            ],
+            "totalRowsToExtract": "All"
+          }
+        },
+        {
+          "id": "jpqkojtpv60vaiy4va13u1gs",
+          "type": "Set variable",
+          "options": {
+            "variableId": "o6gvwrdmly4lyk83tqll8os9",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\n// Reconhece o bairro digitado a partir da aba \"bairros\".\nconst lista = (v) => Array.isArray(v) ? v : (v === undefined || v === null || v === \"\" ? [] : [v]);\nconst nomes = lista({{lista_bairros}});\nconst chaves = lista({{lista_chaves}});\nconst variantes = lista({{lista_variantes}}).map((v) => String(v ?? \"\").split(\"|\").map((s) => s.trim()).filter(Boolean));\nconst unidades = lista({{lista_unidades}}).map((n) => Number(n) || 0);\n\nconst SUFIXO = /\\s+(i{1,3}|iv|[1-4])$/;\nconst digitado = semAcento({{bairro}}).replace(/^(bairro|conjunto|conj|cj)\\s+/, \"\");\nconst semSufixo = digitado.replace(SUFIXO, \"\");\nconst nomesDe = (i) => [chaves[i], ...(variantes[i] || [])];\n\nconst resposta = (status, i, opcoes, pergunta) => JSON.stringify({\n  status,\n  busca: i === null ? \"-\" : chaves[i],\n  nome: i === null ? \"\" : nomes[i],\n  opcoes: opcoes || [],\n  pergunta: pergunta || \"\",\n});\n\nif (!digitado) return resposta(\"nao_encontrado\", null);\n\n// 1) Nome exato (ou variação conhecida, como \"Cidade Nova II\" ou \"Japiinlândia\")\nfor (let i = 0; i < chaves.length; i++) {\n  const n = nomesDe(i);\n  if (n.includes(digitado) || n.includes(semSufixo)) return resposta(\"ok\", i);\n}\n\n// 2) Parcial: cada palavra digitada é começo de uma palavra do bairro\n//    (\"nova\" -> Cidade Nova, Nova Cidade, Nova Esperança...)\nconst palavras = digitado.split(\" \");\nlet candidatos = [];\nif (digitado.length >= 3) {\n  for (let i = 0; i < chaves.length; i++) {\n    const bate = nomesDe(i).some((nome) =>\n      palavras.every((p) => nome.split(\" \").some((w) => w.startsWith(p))));\n    if (bate) candidatos.push(i);\n  }\n}\nif (candidatos.length === 1) return resposta(\"ok\", candidatos[0]);\n\nlet pergunta = `Encontrei mais de um bairro parecido com \"${{{bairro}}}\". Qual é o seu?`;\n\n// 3) Erro de digitação (\"japim\" -> Japiim)\nif (!candidatos.length) {\n  const distancia = (a, b) => {\n    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);\n    for (let j = 1; j <= b.length; j++) d[0][j] = j;\n    for (let i = 1; i <= a.length; i++)\n      for (let j = 1; j <= b.length; j++)\n        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1,\n          d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));\n    return d[a.length][b.length];\n  };\n  const limite = digitado.length <= 5 ? 1 : 2;\n  for (let i = 0; i < chaves.length; i++) {\n    if (nomesDe(i).some((nome) => distancia(digitado, nome) <= limite)) candidatos.push(i);\n  }\n  pergunta = `Não achei o bairro \"${{{bairro}}}\". Você quis dizer:`;\n}\n\nif (!candidatos.length) return resposta(\"nao_encontrado\", null);\n\ncandidatos.sort((a, b) => unidades[b] - unidades[a]);\nconst opcoes = candidatos.slice(0, 6).map((i) => nomes[i]).concat([\"Nenhum desses\"]);\nreturn resposta(\"escolher\", null, opcoes, pergunta);\n",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "v5qbswrpbjek5rbw2zlaoi4e",
+          "type": "Set variable",
+          "options": {
+            "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).status;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "s9rftmttqlgzui1b0z3nx39r",
+          "type": "Set variable",
+          "options": {
+            "variableId": "jp89uzfk8ut0cvs4f8cgvyie",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).busca;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "be8ld4d6af58c2jwoclyt8w5",
+          "type": "Set variable",
+          "options": {
+            "variableId": "qiyhe7ur23gdppq0y9dom5ig",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).nome;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "p5bcw790pdw5py6b2knftu2g",
+          "type": "Set variable",
+          "options": {
+            "variableId": "mvqjt7ye511mkfazz81sdw4s",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).opcoes;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "cvnyruiwqy6qktc89k8yqk94",
+          "type": "Set variable",
+          "options": {
+            "variableId": "diuu9k9xjuy0bvr6k2vmwwyz",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).pergunta;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "k2qc1iyyo4udojen0jnwnyqw",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "rlvxwqzxebb9eitnn8ztv05x",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "pw7kyhqin9n6xcj883dhx8bm",
+                    "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+                    "comparisonOperator": "Equal to",
+                    "value": "ok"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "e2h3tv3i12vj99t2d5em2vaj"
+            },
+            {
+              "id": "e0s0r2sds8b25sq8croyr6cc",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "tfewvznvksp2ex5t5p5o3o0l",
+                    "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+                    "comparisonOperator": "Equal to",
+                    "value": "nao_encontrado"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "kxnf7c3dd03uvulemx15z8vm"
+            }
+          ],
+          "outgoingEdgeId": "ssfr4muekipu1wyuvxybj17m"
+        }
+      ]
+    },
+    {
+      "id": "cahf7vp1ieixwc4rtwuzkamu",
+      "title": "Pergunta SUS",
+      "graphCoordinates": {
+        "x": 2099.25,
+        "y": -376.79999999999995
+      },
+      "blocks": [
+        {
+          "id": "lyup12spfhv5brn7zsedfqs3",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "c8hqmabsi9",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Você quer ver só unidades que atendem pelo SUS?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "m50h2cwtg1m8xfdjgf1c8wqu",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "ou80b6ugvs8q349dxbz9svn7",
+              "content": "✅ Sim, só pelo SUS",
+              "outgoingEdgeId": "momv2xcdyk0x65mufm8zov7l"
+            },
+            {
+              "id": "mxlez896dysal8m1g9fk2st0",
+              "content": "Não, mostrar todas",
+              "outgoingEdgeId": "qbm1enf313fpoyipk0qtl3q4"
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false,
+            "variableId": "sq7uww5wfcpkjcslqc3c54ws"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sbfqnpcenlk8ags6e1zhwy9h",
+      "title": "Especialidade: bairro escolhido",
+      "graphCoordinates": {
+        "x": 2592.76,
+        "y": -23.299999999999955
+      },
+      "blocks": [
+        {
+          "id": "kj2pop8mgyn2jcpp9gkdlkqz",
+          "type": "Set variable",
+          "options": {
+            "variableId": "qiyhe7ur23gdppq0y9dom5ig",
+            "expressionToEvaluate": "const e = {{bairro_escolhido}};\nreturn e === \"Nenhum desses\" ? \"\" : e;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "fymb5m9j98cwn2y8fv2bc2nn",
+          "type": "Set variable",
+          "options": {
+            "variableId": "jp89uzfk8ut0cvs4f8cgvyie",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\nconst e = {{bairro_escolhido}};\nreturn e === \"Nenhum desses\" ? \"-\" : semAcento(e);",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "e4q6qdy4lmct64z7w2sehe2a",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "ruq9e5cozroouelcqse3tv1e",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "q6befflzm764jwtektsg7fxz",
+                    "variableId": "gf1t2tala753lc58drc11ert",
+                    "comparisonOperator": "Equal to",
+                    "value": "Nenhum desses"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "tm7b5c81jhuwb6txki3oqyfo"
+            }
+          ],
+          "outgoingEdgeId": "ohvlz049enulqjidknwi5flu"
+        }
+      ]
+    },
+    {
+      "id": "psf6f7low4vssruraldol65w",
+      "title": "Especialidade: escolher bairro",
+      "graphCoordinates": {
+        "x": 2242.76,
+        "y": -23.299999999999955
+      },
+      "blocks": [
+        {
+          "id": "kgf9q5rdoqivbkv4ykadejno",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "id": "bouhtcs1k9",
+                "type": "p",
+                "children": [
+                  {
+                    "text": "{{bairro_pergunta}}"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "fxd9css9toqw9ja2m0w10lbt",
+          "type": "choice input",
+          "items": [
+            {
+              "id": "ug2qzw3c1qkbhb7s9tj1gm25",
+              "content": "(opções do bairro)"
+            }
+          ],
+          "options": {
+            "isMultipleChoice": false,
+            "dynamicVariableId": "mvqjt7ye511mkfazz81sdw4s",
+            "variableId": "gf1t2tala753lc58drc11ert"
+          },
+          "outgoingEdgeId": "tr821uzvgww4fyb8dalfyo17"
+        }
+      ]
+    },
+    {
+      "id": "enjlcqnt3bnvbc2vyhh6k6hg",
+      "title": "Especialidade: reconhecer bairro",
+      "graphCoordinates": {
+        "x": 1892.76,
+        "y": -23.299999999999955
+      },
+      "blocks": [
+        {
+          "id": "x0zsu9rn8qtty5y2jr8kk791",
+          "type": "Google Sheets",
+          "options": {
+            "credentialsId": "cmr6zeziq00000aj5wnpx27f6",
+            "sheetId": "7001",
+            "spreadsheetId": "1cISFsqKR4qZzSKx13bILNCOCuzCC7b4quWpB-lf5dT4",
+            "action": "Get data from sheet",
+            "filter": {
+              "logicalOperator": "AND",
+              "comparisons": [
+                {
+                  "id": "whzlm72jeyn9382kkzmpjrht",
+                  "column": "municipio",
+                  "comparisonOperator": "Equal to",
+                  "value": "{{municipio_busca}}"
+                }
+              ]
+            },
+            "cellsToExtract": [
+              {
+                "id": "rzewviytwbozd1at7o75rh8l",
+                "column": "bairro",
+                "variableId": "a7u6n7hv3izky22ubtxcxapr"
+              },
+              {
+                "id": "uc1xi04b7p47b42g05kbkv7m",
+                "column": "busca_bairro",
+                "variableId": "kgh2m5zja8dzr1yxr2dhylur"
+              },
+              {
+                "id": "o9tr74qgefqjg02u1g463sdy",
+                "column": "variantes",
+                "variableId": "wtj9tze5r5uqpgb7r3ocwbfu"
+              },
+              {
+                "id": "f9r7anqjluujmiyqfy751yw7",
+                "column": "unidades",
+                "variableId": "nqvkizzqy72wx7ptx63cfl0u"
+              }
+            ],
+            "totalRowsToExtract": "All"
+          }
+        },
+        {
+          "id": "lwhef0votqtxhi15cqzcucts",
+          "type": "Set variable",
+          "options": {
+            "variableId": "o6gvwrdmly4lyk83tqll8os9",
+            "expressionToEvaluate": "const semAcento = (t) => String(t ?? \"\")\n  .normalize(\"NFD\")\n  .replace(/[\\u0300-\\u036f]/g, \"\")\n  .toLowerCase()\n  .replace(/\\s+/g, \" \")\n  .trim();\n\nconst STOPWORDS = new Set([\"a\", \"o\", \"as\", \"os\", \"um\", \"uma\", \"uns\", \"umas\", \"de\", \"do\", \"da\", \"dos\", \"das\", \"e\", \"em\", \"no\", \"na\", \"nos\", \"nas\", \"para\", \"pra\", \"pro\", \"com\", \"por\", \"que\", \"quero\", \"queria\", \"preciso\", \"procuro\", \"gostaria\", \"meu\", \"minha\", \"bairro\", \"unidade\"]);\n\nconst radical = (p) => {\n  if (p.length > 4 && p.endsWith(\"oes\")) return p.slice(0, -3) + \"ao\";\n  if (p.length > 4 && p.endsWith(\"ais\")) return p.slice(0, -3) + \"al\";\n  if (p.length > 3 && p.endsWith(\"s\") && !p.endsWith(\"ss\")) return p.slice(0, -1);\n  return p;\n};\n\nconst normalizarBusca = (t) => semAcento(t)\n  .replace(/[^a-z0-9]+/g, \" \")\n  .split(\" \")\n  .filter((p) => p && !STOPWORDS.has(p))\n  .map(radical)\n  .join(\" \");\n\n// Reconhece o bairro digitado a partir da aba \"bairros\".\nconst lista = (v) => Array.isArray(v) ? v : (v === undefined || v === null || v === \"\" ? [] : [v]);\nconst nomes = lista({{lista_bairros}});\nconst chaves = lista({{lista_chaves}});\nconst variantes = lista({{lista_variantes}}).map((v) => String(v ?? \"\").split(\"|\").map((s) => s.trim()).filter(Boolean));\nconst unidades = lista({{lista_unidades}}).map((n) => Number(n) || 0);\n\nconst SUFIXO = /\\s+(i{1,3}|iv|[1-4])$/;\nconst digitado = semAcento({{bairro}}).replace(/^(bairro|conjunto|conj|cj)\\s+/, \"\");\nconst semSufixo = digitado.replace(SUFIXO, \"\");\nconst nomesDe = (i) => [chaves[i], ...(variantes[i] || [])];\n\nconst resposta = (status, i, opcoes, pergunta) => JSON.stringify({\n  status,\n  busca: i === null ? \"-\" : chaves[i],\n  nome: i === null ? \"\" : nomes[i],\n  opcoes: opcoes || [],\n  pergunta: pergunta || \"\",\n});\n\nif (!digitado) return resposta(\"nao_encontrado\", null);\n\n// 1) Nome exato (ou variação conhecida, como \"Cidade Nova II\" ou \"Japiinlândia\")\nfor (let i = 0; i < chaves.length; i++) {\n  const n = nomesDe(i);\n  if (n.includes(digitado) || n.includes(semSufixo)) return resposta(\"ok\", i);\n}\n\n// 2) Parcial: cada palavra digitada é começo de uma palavra do bairro\n//    (\"nova\" -> Cidade Nova, Nova Cidade, Nova Esperança...)\nconst palavras = digitado.split(\" \");\nlet candidatos = [];\nif (digitado.length >= 3) {\n  for (let i = 0; i < chaves.length; i++) {\n    const bate = nomesDe(i).some((nome) =>\n      palavras.every((p) => nome.split(\" \").some((w) => w.startsWith(p))));\n    if (bate) candidatos.push(i);\n  }\n}\nif (candidatos.length === 1) return resposta(\"ok\", candidatos[0]);\n\nlet pergunta = `Encontrei mais de um bairro parecido com \"${{{bairro}}}\". Qual é o seu?`;\n\n// 3) Erro de digitação (\"japim\" -> Japiim)\nif (!candidatos.length) {\n  const distancia = (a, b) => {\n    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);\n    for (let j = 1; j <= b.length; j++) d[0][j] = j;\n    for (let i = 1; i <= a.length; i++)\n      for (let j = 1; j <= b.length; j++)\n        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1,\n          d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));\n    return d[a.length][b.length];\n  };\n  const limite = digitado.length <= 5 ? 1 : 2;\n  for (let i = 0; i < chaves.length; i++) {\n    if (nomesDe(i).some((nome) => distancia(digitado, nome) <= limite)) candidatos.push(i);\n  }\n  pergunta = `Não achei o bairro \"${{{bairro}}}\". Você quis dizer:`;\n}\n\nif (!candidatos.length) return resposta(\"nao_encontrado\", null);\n\ncandidatos.sort((a, b) => unidades[b] - unidades[a]);\nconst opcoes = candidatos.slice(0, 6).map((i) => nomes[i]).concat([\"Nenhum desses\"]);\nreturn resposta(\"escolher\", null, opcoes, pergunta);\n",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "stf4pyzr6qceouuylajahcpz",
+          "type": "Set variable",
+          "options": {
+            "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).status;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "r97c7bo119xp9n56nyxtxmgt",
+          "type": "Set variable",
+          "options": {
+            "variableId": "jp89uzfk8ut0cvs4f8cgvyie",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).busca;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "qe9419qzpniqfg51bxw76icv",
+          "type": "Set variable",
+          "options": {
+            "variableId": "qiyhe7ur23gdppq0y9dom5ig",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).nome;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "ovzb0oih5csk30lvylkfxhkc",
+          "type": "Set variable",
+          "options": {
+            "variableId": "mvqjt7ye511mkfazz81sdw4s",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).opcoes;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "s56wpr97y2lofn1r4kz36u8u",
+          "type": "Set variable",
+          "options": {
+            "variableId": "diuu9k9xjuy0bvr6k2vmwwyz",
+            "expressionToEvaluate": "return JSON.parse({{bairro_resolucao}}).pergunta;",
+            "isCode": true,
+            "type": "Custom"
+          }
+        },
+        {
+          "id": "xe9rivh6t1ntmjsrd9q46nou",
+          "type": "Condition",
+          "items": [
+            {
+              "id": "h0atvzkhiuit7m1r00q0mftg",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "r98s4c3baewcfhqcw76xatoa",
+                    "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+                    "comparisonOperator": "Equal to",
+                    "value": "ok"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "xj9a3y36ddfgs3jonou9iy4x"
+            },
+            {
+              "id": "u1dntcagrp2u4dtbh55rbc76",
+              "content": {
+                "logicalOperator": "AND",
+                "comparisons": [
+                  {
+                    "id": "sxg4ahf337kuu4ytn02yc0md",
+                    "variableId": "dxf7kzorqqfgv0ec14m2ja04",
+                    "comparisonOperator": "Equal to",
+                    "value": "nao_encontrado"
+                  }
+                ]
+              },
+              "outgoingEdgeId": "h4m18o1bj9rm7pyxdw2zcfzw"
+            }
+          ],
+          "outgoingEdgeId": "xomd7q1ddpusddtv25ao20u9"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "mcjb8dh2g13p9p9kivabhqow",
+      "from": {
+        "blockId": "pje0m4z4azuawc0jw02ocq7e"
+      },
+      "to": {
+        "groupId": "r0wmd81kxjxh7sghvdwk4nee"
+      }
+    },
+    {
+      "id": "o6rakb20irwe3gfbtg1b14zc",
+      "from": {
+        "blockId": "wnwzuhpo1yz8cdlsjc4ekdn2"
+      },
+      "to": {
+        "groupId": "n0urf9pb7s2g86j021jzmhrv"
+      }
+    },
+    {
+      "id": "u8mz2mf9yuvnyakttgfzsnxv",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "q8d3exbdbpcllxaos04hrvb4"
+      },
+      "to": {
+        "groupId": "z5c0pqea2kxi0k3470k6z9sk"
+      }
+    },
+    {
+      "id": "jggk2tslfksb4cm5ia1y00nt",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "o9t3ax7zi9yus77ym50nuy0k"
+      },
+      "to": {
+        "groupId": "hor2u31zuubzz7a0d84cpo35"
+      }
+    },
+    {
+      "id": "ze2i1318ay22qt23nbb9lhep",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "k41dhj2dhqyhl60ib2kq4nrc"
+      },
+      "to": {
+        "groupId": "rh9yzk60p23cvira70v2vla2"
+      }
+    },
+    {
+      "id": "ydehupjdhb5dpe9e69wyuw3y",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "j9itwo5x9f0t0ju568ceasjl"
+      },
+      "to": {
+        "groupId": "yqzrwmscl97n38gll86s95fi"
+      }
+    },
+    {
+      "id": "l6nzbwhgtc9s559ppfh8l7ak",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "i86hyphaxbt6xqdrp95trz8z"
+      },
+      "to": {
+        "groupId": "z402ryi41wxfa2zt4og4q47w"
+      }
+    },
+    {
+      "id": "d00zrtw83pgek0x4x9xq9oo2",
+      "from": {
+        "blockId": "sefa5ug6s202312ti7hwprwi"
+      },
+      "to": {
+        "groupId": "lm5qph45zvsaoio6gxn6yv9c"
+      }
+    },
+    {
+      "id": "j1q03ednfro7d6mvrzhch064",
+      "from": {
+        "blockId": "zycnafjv0oatql0emrw593oz"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "wgdali0zyhat6v4ffusgpkzf",
+      "from": {
+        "blockId": "ko7be110ca6u6bx74qvmpmwz"
+      },
+      "to": {
+        "groupId": "hupdpptt2almnor9ki7c8kzw"
+      }
+    },
+    {
+      "id": "l5ini73howl7hqrgs315zyf5",
+      "from": {
+        "blockId": "nlfdibeenrkltkszyfd76vwe"
+      },
+      "to": {
+        "groupId": "itmvvipt03o65532udkodqqz"
+      }
+    },
+    {
+      "id": "ptpwfti507y60bgcw8qhrpr6",
+      "from": {
+        "blockId": "gvn1c3x8qq05tcr92up6vwp5"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "rcvz2q8aump7c9l15qmyu9ik",
+      "from": {
+        "blockId": "xpmwnrzoagwt3rej04uyn59q"
+      },
+      "to": {
+        "groupId": "vwaqiffad0qr3uhp7lt9d9g1"
+      }
+    },
+    {
+      "id": "qy43sfol5gdzcwjmgqm3scvx",
+      "from": {
+        "blockId": "uwwn7egew6nsh38xmr4agme7",
+        "itemId": "piixnmpwcoy02z8iqspadf46"
+      },
+      "to": {
+        "groupId": "t08qzukw1loyku7h0rxd8inx"
+      }
+    },
+    {
+      "id": "sae3zsx3qegigeztp6yt5r9t",
+      "from": {
+        "blockId": "uwwn7egew6nsh38xmr4agme7",
+        "itemId": "wqgo66lsnxe6v1y8po14ovad"
+      },
+      "to": {
+        "groupId": "t08qzukw1loyku7h0rxd8inx"
+      }
+    },
+    {
+      "id": "up87g5uefx0qsb0xmg0vlo5d",
+      "from": {
+        "blockId": "uwwn7egew6nsh38xmr4agme7",
+        "itemId": "b2ek0aaglc3fo8xgxdqo8ruy"
+      },
+      "to": {
+        "groupId": "t08qzukw1loyku7h0rxd8inx"
+      }
+    },
+    {
+      "id": "fxsl0tp9h2f5kvl6pgthh3ep",
+      "from": {
+        "blockId": "uwwn7egew6nsh38xmr4agme7",
+        "itemId": "o4asb1kefc1t2l5wew28bc5r"
+      },
+      "to": {
+        "groupId": "bywkljk4l4sr8fgyqox226co"
+      }
+    },
+    {
+      "id": "pec6lmbd35s1dzkvmtyroy9j",
+      "from": {
+        "blockId": "nae888ojnyowtspf9akpyvjp"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "zxalvcte1602dtpgproites8",
+      "from": {
+        "blockId": "bvwvo9vcfcsjngrfqfrvs5dq"
+      },
+      "to": {
+        "groupId": "xjy2l2eh8b3kjfqc4u4pfeum"
+      }
+    },
+    {
+      "id": "l5xvr85ue2zvhvuz82yfaqv6",
+      "from": {
+        "blockId": "jcx9qc1071rqiifxs7p3ocph"
+      },
+      "to": {
+        "groupId": "ayl6kgs0fvjpoai89yt1laom"
+      }
+    },
+    {
+      "id": "tqlz28dzg02p3wpqi8j0wehk",
+      "from": {
+        "blockId": "bv0buptioqss79d4a95mc262"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "ajq9kf47sq7i2o9wslcscro8",
+      "from": {
+        "blockId": "t1ibk8v3nz767ubyufv2ctsm"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "tsi18cqkh7lue9vhdfn3b625",
+      "from": {
+        "blockId": "xr3ysjsbg9d56ixpiu2az34h"
+      },
+      "to": {
+        "groupId": "y7mgrayd135uc14c87zys2kh"
+      }
+    },
+    {
+      "id": "kw5msetxyy7r4tmmcrrwxiuh",
+      "from": {
+        "blockId": "vv4bhw8otaxxnd31xpy25ysy"
+      },
+      "to": {
+        "groupId": "jikikuxkmap4z8t891qj7if1"
+      }
+    },
+    {
+      "id": "nbp6i1mcopxvyvdagjz1d99u",
+      "from": {
+        "blockId": "ytj6er99vb79w4eqj4r3s516"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "af4xvl6tsu9i32y8x95bd0qi",
+      "from": {
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      },
+      "to": {
+        "groupId": "lgqq5j22jpyiegoex7x4tujd"
+      }
+    },
+    {
+      "id": "qhaoysd90chye0gykczn5kxu",
+      "from": {
+        "blockId": "vcyi8mxdmtta19hprnpcmnhc",
+        "itemId": "viaz9pone2fnrnrd1w4bkfev"
+      },
+      "to": {
+        "groupId": "s805eutf5nh97jrucoytyccl"
+      }
+    },
+    {
+      "id": "az9kqaa6n63fgs11y6hlcisy",
+      "from": {
+        "blockId": "vcyi8mxdmtta19hprnpcmnhc",
+        "itemId": "oe4qs7n45w1780l5bpciywpq"
+      },
+      "to": {
+        "groupId": "z8yxvmjyokw7a2t558uenjjt"
+      }
+    },
+    {
+      "id": "rmbyd6n07riitfr7w3dmugyg",
+      "from": {
+        "blockId": "gq1pemqiorexp2uuchxvcyyf"
+      },
+      "to": {
+        "groupId": "nwms2c4wmdhvku8bkammho6h"
+      }
+    },
+    {
+      "id": "e302nuk31q0kawa7jfplh9x1",
+      "from": {
+        "blockId": "ioo6nzsdfadbb8ge1nnfkwci"
+      },
+      "to": {
+        "groupId": "tdgklmo09zww1vglvyya3sbf"
+      }
+    },
+    {
+      "id": "cvt9xy8qgc8t928dszin5woh",
+      "from": {
+        "blockId": "pb7da893x27sjpamrvmj86u6"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "idb5aqbl3nllspkyhv140egi",
+      "from": {
+        "blockId": "rfhm1qy69arpb85flgm7fyc3"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "adcj4f45vdzyp8snnw7jq3g6",
+      "from": {
+        "blockId": "gc1o49u3lz4d5y2pjrrro3t8"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "yx9o3jn6fvcm0m6m4vt6gh07",
+      "from": {
+        "blockId": "jdh3qolhhv96ambfh5h204ch"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "yr49d0md1xziavj837eqomrv",
+      "from": {
+        "blockId": "jcs0wgp5qserxinp61ejb0zf"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "l6dj9ej84a8137zm5nvtruuj",
+      "from": {
+        "blockId": "wtkkvwk07wylsgymsx3gt24g"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "cnmf9s6ftnig13h8rc7ms34y",
+      "from": {
+        "blockId": "onxmeqxl11pill81m0vhn5in"
+      },
+      "to": {
+        "groupId": "d4cry0ore5pw7gcig9o8ccey"
+      }
+    },
+    {
+      "id": "nj9njb3psvmruxdubne9q79d",
+      "from": {
+        "blockId": "b2nbqdcn5xi2vjn6j74tl50d"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "v3jy9oic9m94v3qngs4qwdbn",
+      "from": {
+        "blockId": "mtgels7o0oktzz9yp80ujjtk"
+      },
+      "to": {
+        "groupId": "ybclgxjchjz6jv5p23rr9zzw"
+      }
+    },
+    {
+      "id": "aa70gmydxna5dv4136rvuaz2",
+      "from": {
+        "blockId": "gj5q9oomljwyqmjtgy6ouqcr"
+      },
+      "to": {
+        "groupId": "vyedwb2bne6loh25nsjf678k"
+      }
+    },
+    {
+      "id": "cy8lf39q72imspgvgd51370w",
+      "from": {
+        "blockId": "w7c8fnb8i3e4qfrdrwqqxzad",
+        "itemId": "yf8aes5k6fhotjeppr8p9leq"
+      },
+      "to": {
+        "groupId": "ybclgxjchjz6jv5p23rr9zzw",
+        "blockId": "jcs0wgp5qserxinp61ejb0zf"
+      }
+    },
+    {
+      "id": "ogd2u2rrwz52ifr0lxk1gg73",
+      "from": {
+        "blockId": "reh01k7u4kzetvnuytycipmf"
+      },
+      "to": {
+        "groupId": "ex8gqv8e01h5n24xqn02yics"
+      }
+    },
+    {
+      "id": "z9k5qa1v17scudqiueoqgglv",
+      "from": {
+        "blockId": "uwcsvg3hm4l5otm6fq2ssfje"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "ss36lkc0dp5wcsgyqdcfdoeq",
+      "from": {
+        "eventId": "g1tbb4w2oswsdv2dpc173tcy"
+      },
+      "to": {
+        "groupId": "wifp2i2vqzcbj4nnz7tq8yd2"
+      }
+    },
+    {
+      "id": "uwo7kmxg1ltqpinycfflv28d",
+      "from": {
+        "blockId": "w7c8fnb8i3e4qfrdrwqqxzad"
+      },
+      "to": {
+        "groupId": "fsakiazy3n4gruwii9lv3k9f",
+        "blockId": "wrgff4bbjooimgulcr0v46qh"
+      }
+    },
+    {
+      "id": "mh9c9fnc5veqabuxg7pexmg0",
+      "from": {
+        "blockId": "wrgff4bbjooimgulcr0v46qh"
+      },
+      "to": {
+        "groupId": "liyfgdrrnayx7ozljndosarw"
+      }
+    },
+    {
+      "id": "w0bgg0hai95aqdwv4822meqr",
+      "from": {
+        "blockId": "qwwo1kjlf0q8q7kpnlzc968f"
+      },
+      "to": {
+        "groupId": "ersbk3df08xw7x9oysrvs5fw"
+      }
+    },
+    {
+      "id": "vgfvrv0swhqreob30wjt1jqy",
+      "from": {
+        "blockId": "dn18ga1z9k6q3bmizltdf6c5"
+      },
+      "to": {
+        "groupId": "lcbbn26senr3gylc474bwm3c",
+        "blockId": "y5ru8iavjuhr5j76k740mz2g"
+      }
+    },
+    {
+      "id": "y2s35czlptjsaaksbgvien2f",
+      "from": {
+        "blockId": "y5ru8iavjuhr5j76k740mz2g"
+      },
+      "to": {
+        "groupId": "t1txodz6jzri6k1j56unisny"
+      }
+    },
+    {
+      "id": "pk0vx3gvyxancbzhu2llqprn",
+      "from": {
+        "blockId": "bb5q0yxbedjz036zu9kmr65e"
+      },
+      "to": {
+        "groupId": "enjlcqnt3bnvbc2vyhh6k6hg"
+      }
+    },
+    {
+      "id": "fez1xqkrq8gz9ganvkms6uoe",
+      "from": {
+        "blockId": "nceb30jhdyvrwv7398liih86"
+      },
+      "to": {
+        "groupId": "df4ct7tem0b5j2f0fp4feae1"
+      }
+    },
+    {
+      "id": "t43ctyn5n5g2yiw43sw7lqvi",
+      "from": {
+        "blockId": "ru0zuuneqqcxhdrslgu9jwic"
+      },
+      "to": {
+        "groupId": "jaxk5pwtudnu23dh4lrry1dt",
+        "blockId": "foxgihtrwrzbfjp6hppzrmzo"
+      }
+    },
+    {
+      "id": "ihn46aa52qcrrzgrffnholw0",
+      "from": {
+        "blockId": "foxgihtrwrzbfjp6hppzrmzo"
+      },
+      "to": {
+        "groupId": "bwoawm4lcdgooyki0pps4x22"
+      }
+    },
+    {
+      "id": "soclldgnbf9mue8caqnnj34g",
+      "from": {
+        "blockId": "ourlohxyrk8dl2vko0sn21tp"
+      },
+      "to": {
+        "groupId": "k8ztp25cof6czwbe4pdirfvl"
+      }
+    },
+    {
+      "id": "v9d3ge81r17ku2jfz3d90lin",
+      "from": {
+        "blockId": "ru0zuuneqqcxhdrslgu9jwic",
+        "itemId": "x5b497d75pvignw0h9vpog0v"
+      },
+      "to": {
+        "groupId": "row2iifnp02optqnynhbehzu"
+      }
+    },
+    {
+      "id": "bvbrcsxjyzev2z0uc3is7t8x",
+      "from": {
+        "blockId": "kwkg86clulfs6c024nuoodzk"
+      },
+      "to": {
+        "groupId": "lxp9wmamfmn9h66cddv0shfm"
+      }
+    },
+    {
+      "id": "zxt0lvnvf4cqxl2h8jn4pmq5",
+      "from": {
+        "blockId": "oo8as0rkq6m5xi21trbw78c6"
+      },
+      "to": {
+        "groupId": "x5f1ezz239gdm90bo882bepc",
+        "blockId": "pztziea4pj0jww1682yh6isi"
+      }
+    },
+    {
+      "id": "if756w93zqa7j7gv1atpii8v",
+      "from": {
+        "blockId": "pztziea4pj0jww1682yh6isi"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "izmv5ssx43spt51pmrg0zls5",
+      "from": {
+        "blockId": "cem90304mok3ql4g88ibf0l3"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "dwh09k3l2k0e9shlh5h5lrim",
+      "from": {
+        "blockId": "q644fbfsweflu59w0ftnmpca"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "iiyezbtvo2dkifoepkqtagsw",
+      "from": {
+        "blockId": "kwkg86clulfs6c024nuoodzk",
+        "itemId": "l7w4ax1hw9thvdtwozu32phl"
+      },
+      "to": {
+        "groupId": "n2wal0x8vwroysbhw1htihti"
+      }
+    },
+    {
+      "id": "ykpa00vh9hemtif7rvigyjic",
+      "from": {
+        "blockId": "ylglrurpxkp8kympqbuhsc0v",
+        "itemId": "h6hz2dvndzoy8v0ki17q2roc"
+      },
+      "to": {
+        "groupId": "cplobabgcou7v55c4dynzklo",
+        "blockId": "qwwo1kjlf0q8q7kpnlzc968f"
+      }
+    },
+    {
+      "id": "clpcc1qsx3qgmp28e4kn9wgm",
+      "from": {
+        "blockId": "pwe9ngum5g42stq16ysaz9q0",
+        "itemId": "ip5uusrmt21kmpbqtuhs9ive"
+      },
+      "to": {
+        "groupId": "c2fxpfxq98g8re79htc2ozsv",
+        "blockId": "jt9xk918jvrom3cguahpqc2p"
+      }
+    },
+    {
+      "id": "srv9wkznducnp9zg83gualcv",
+      "from": {
+        "blockId": "jt9xk918jvrom3cguahpqc2p"
+      },
+      "to": {
+        "groupId": "b7du7kd46aev26jaujdcavwe"
+      }
+    },
+    {
+      "id": "s33dovqu6t1aitoa8kyrbflv",
+      "from": {
+        "blockId": "ylglrurpxkp8kympqbuhsc0v",
+        "itemId": "uc15ugjr2g2h7dj8bbmmjvdj"
+      },
+      "to": {
+        "groupId": "vjz52s1g1ft2ip1mtpzddpvy",
+        "blockId": "b35qevltn3l12up34ewbvcmp"
+      }
+    },
+    {
+      "id": "wypftvorcmrbmfyryvnsbj10",
+      "from": {
+        "blockId": "b35qevltn3l12up34ewbvcmp"
+      },
+      "to": {
+        "groupId": "qrkz2axmnm75lk8leht23qdb"
+      }
+    },
+    {
+      "id": "gg0myelqwn9q3lnlpwpi1shk",
+      "from": {
+        "blockId": "jw005v17fzma4hyt5e8203z3"
+      },
+      "to": {
+        "groupId": "v13xnur38c5wj71pnsigjm86"
+      }
+    },
+    {
+      "id": "mb9carhgw5tl9v1mjst5qy07",
+      "from": {
+        "blockId": "zo7lz0g1zahwfeu0c7i54fvz"
+      },
+      "to": {
+        "groupId": "zl7w1qhy3k49l3n72xd8q8ab"
+      }
+    },
+    {
+      "id": "uyf44qgghjmn4m8on60u1bb8",
+      "from": {
+        "blockId": "bfuutklyr3g2kwqksn2a43nw",
+        "itemId": "zqq3em9zgp8qaw1as3jav4s1"
+      },
+      "to": {
+        "groupId": "r3lircltnjwpww2cnbujh98n"
+      }
+    },
+    {
+      "id": "jtt1k6jp1ltolt0g2cpljfwg",
+      "from": {
+        "blockId": "b7emem1q1sibksudhnpnesfa"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729"
+      }
+    },
+    {
+      "id": "gya9nb6jgzb6ofx0ough6tb8",
+      "from": {
+        "blockId": "bfuutklyr3g2kwqksn2a43nw"
+      },
+      "to": {
+        "groupId": "nod7s0nfdltwsvmja921kt21",
+        "blockId": "l2ngnz2225dxf2vyq9z5q79g"
+      }
+    },
+    {
+      "id": "dly6s0g8vsdmojhfavojlnhl",
+      "from": {
+        "blockId": "l2ngnz2225dxf2vyq9z5q79g"
+      },
+      "to": {
+        "groupId": "dokurfvap0mm5nra5nipcucj"
+      }
+    },
+    {
+      "id": "cww2zlc5rlvonyaohnu6stn9",
+      "from": {
+        "blockId": "dj5grqch9illdwxjkdgm0bav"
+      },
+      "to": {
+        "groupId": "r9oyq7gp7ns3j7wdmnp4r729",
+        "blockId": "pk20svub20d5k8avpov3iwim"
+      }
+    },
+    {
+      "id": "q5siun0e68wd8ttkxdziau2t",
+      "from": {
+        "blockId": "yau54tk668t0973clbo2in8s"
+      },
+      "to": {
+        "groupId": "ye5ozt6v55lbsk5vhyyr4boa"
+      }
+    },
+    {
+      "id": "oak5hjg3ccpf7pesd7cqnqgi",
+      "from": {
+        "blockId": "gglouch9z9xgl1endvogh1ii"
+      },
+      "to": {
+        "groupId": "m96w5x8kujhdnd9lkxhgy7sb"
+      }
+    },
+    {
+      "id": "swf8db7zzpqa9d5rh4js5la8",
+      "from": {
+        "blockId": "vzwnkaxog5282na2tg31euqs",
+        "itemId": "w4kmdckkxadpjjvsfwmbwer5"
+      },
+      "to": {
+        "groupId": "wz6jc78v0lbhdt1qn9jl7wvk"
+      }
+    },
+    {
+      "id": "yq4udbl80rsej7s8dc3q9op0",
+      "from": {
+        "blockId": "wizzhd50u5n92efxosdgz1i8"
+      },
+      "to": {
+        "groupId": "ye5ozt6v55lbsk5vhyyr4boa"
+      }
+    },
+    {
+      "id": "t4k61aa8kuob93e46tmxjrh5",
+      "from": {
+        "blockId": "vzwnkaxog5282na2tg31euqs",
+        "itemId": "n199cvl6x09c1f03ahxdhpif"
+      },
+      "to": {
+        "groupId": "r0wmd81kxjxh7sghvdwk4nee"
+      }
+    },
+    {
+      "id": "f2d54i3qk2iagl58kxo9t7e8",
+      "from": {
+        "blockId": "c5nf4zw9xa3kx7eedtjvzhwj",
+        "itemId": "pj6bw3bme9fpzue8yfbntpbn"
+      },
+      "to": {
+        "groupId": "ybclgxjchjz6jv5p23rr9zzw"
+      }
+    },
+    {
+      "id": "fu9bvm2p9e6gbps3y70hp87w",
+      "from": {
+        "blockId": "c5nf4zw9xa3kx7eedtjvzhwj"
+      },
+      "to": {
+        "groupId": "ptx72iuc2xqo3f8rs6otyquw"
+      }
+    },
+    {
+      "id": "rqf5q14j1ripzim6cfnfholq",
+      "from": {
+        "blockId": "iq4fmyzycwtiqj7yhl1c32oc"
+      },
+      "to": {
+        "groupId": "sivwpvs7hzioykl1cq99chj7"
+      }
+    },
+    {
+      "id": "e2h3tv3i12vj99t2d5em2vaj",
+      "from": {
+        "blockId": "k2qc1iyyo4udojen0jnwnyqw",
+        "itemId": "rlvxwqzxebb9eitnn8ztv05x"
+      },
+      "to": {
+        "groupId": "ptx72iuc2xqo3f8rs6otyquw"
+      }
+    },
+    {
+      "id": "kxnf7c3dd03uvulemx15z8vm",
+      "from": {
+        "blockId": "k2qc1iyyo4udojen0jnwnyqw",
+        "itemId": "e0s0r2sds8b25sq8croyr6cc"
+      },
+      "to": {
+        "groupId": "ybclgxjchjz6jv5p23rr9zzw"
+      }
+    },
+    {
+      "id": "ssfr4muekipu1wyuvxybj17m",
+      "from": {
+        "blockId": "k2qc1iyyo4udojen0jnwnyqw"
+      },
+      "to": {
+        "groupId": "exa11dpg8sbi4q2y9v86wzs3"
+      }
+    },
+    {
+      "id": "momv2xcdyk0x65mufm8zov7l",
+      "from": {
+        "blockId": "m50h2cwtg1m8xfdjgf1c8wqu",
+        "itemId": "ou80b6ugvs8q349dxbz9svn7"
+      },
+      "to": {
+        "groupId": "gi0736h7bt90w3medjafnk10"
+      }
+    },
+    {
+      "id": "qbm1enf313fpoyipk0qtl3q4",
+      "from": {
+        "blockId": "m50h2cwtg1m8xfdjgf1c8wqu",
+        "itemId": "mxlez896dysal8m1g9fk2st0"
+      },
+      "to": {
+        "groupId": "gi0736h7bt90w3medjafnk10"
+      }
+    },
+    {
+      "id": "tm7b5c81jhuwb6txki3oqyfo",
+      "from": {
+        "blockId": "e4q6qdy4lmct64z7w2sehe2a",
+        "itemId": "ruq9e5cozroouelcqse3tv1e"
+      },
+      "to": {
+        "groupId": "cahf7vp1ieixwc4rtwuzkamu"
+      }
+    },
+    {
+      "id": "ohvlz049enulqjidknwi5flu",
+      "from": {
+        "blockId": "e4q6qdy4lmct64z7w2sehe2a"
+      },
+      "to": {
+        "groupId": "cahf7vp1ieixwc4rtwuzkamu"
+      }
+    },
+    {
+      "id": "tr821uzvgww4fyb8dalfyo17",
+      "from": {
+        "blockId": "fxd9css9toqw9ja2m0w10lbt"
+      },
+      "to": {
+        "groupId": "sbfqnpcenlk8ags6e1zhwy9h"
+      }
+    },
+    {
+      "id": "xj9a3y36ddfgs3jonou9iy4x",
+      "from": {
+        "blockId": "xe9rivh6t1ntmjsrd9q46nou",
+        "itemId": "h0atvzkhiuit7m1r00q0mftg"
+      },
+      "to": {
+        "groupId": "cahf7vp1ieixwc4rtwuzkamu"
+      }
+    },
+    {
+      "id": "h4m18o1bj9rm7pyxdw2zcfzw",
+      "from": {
+        "blockId": "xe9rivh6t1ntmjsrd9q46nou",
+        "itemId": "u1dntcagrp2u4dtbh55rbc76"
+      },
+      "to": {
+        "groupId": "cahf7vp1ieixwc4rtwuzkamu"
+      }
+    },
+    {
+      "id": "xomd7q1ddpusddtv25ao20u9",
+      "from": {
+        "blockId": "xe9rivh6t1ntmjsrd9q46nou"
+      },
+      "to": {
+        "groupId": "psf6f7low4vssruraldol65w"
+      }
+    }
+  ],
+  "variables": [
+    {
+      "id": "kleemi5qf87idl8z8fssol53",
+      "name": "todas_especialidades",
+      "isSessionVariable": true
+    },
+    {
+      "id": "pthdhd56rq3sqa8ytws5wb94",
+      "name": "unidade",
+      "isSessionVariable": false
+    },
+    {
+      "id": "vghdt0wmzu3ssilndwr1zuake",
+      "name": "especialidade",
+      "isSessionVariable": false
+    },
+    {
+      "id": "n9qhxoo5mpg1nb6mr9rgvifu",
+      "name": "resultado",
+      "isSessionVariable": true
+    },
+    {
+      "id": "cbr4fa6yavtqi3wif32utmvd",
+      "name": "nome",
+      "isSessionVariable": true
+    },
+    {
+      "id": "wkugxc2w4o0k2da2vqfq5hrg",
+      "name": "telefone",
+      "isSessionVariable": true
+    },
+    {
+      "id": "mfw3dvb1h0xbx8e36sj32lrb",
+      "name": "endereco",
+      "isSessionVariable": true
+    },
+    {
+      "id": "p63206fuhswrsckt0hvdm0vo",
+      "name": "bairro",
+      "isSessionVariable": false
+    },
+    {
+      "id": "uugrnthnt86ploxlodm10159",
+      "name": "posto",
+      "isSessionVariable": false
+    },
+    {
+      "id": "afacfhw7xhfshjt1ae49wa05",
+      "name": "vacina",
+      "isSessionVariable": false
+    },
+    {
+      "id": "qmwtlzv4p91wh7fc7xme2dco",
+      "name": "duvida",
+      "isSessionVariable": false
+    },
+    {
+      "id": "athubdm6rs2nlwbq0jz1apyi",
+      "name": "feedback_negativo",
+      "isSessionVariable": false
+    },
+    {
+      "id": "g8mdd4v30t9nt3w5uzbikcid",
+      "name": "municipio_busca",
+      "isSessionVariable": true
+    },
+    {
+      "id": "mvqjt7ye511mkfazz81sdw4s",
+      "name": "bairro_opcoes",
+      "isSessionVariable": true
+    },
+    {
+      "id": "gf1t2tala753lc58drc11ert",
+      "name": "bairro_escolhido",
+      "isSessionVariable": true
+    },
+    {
+      "id": "qiyhe7ur23gdppq0y9dom5ig",
+      "name": "bairro_nome",
+      "isSessionVariable": true
+    },
+    {
+      "id": "jp89uzfk8ut0cvs4f8cgvyie",
+      "name": "bairro_busca",
+      "isSessionVariable": true
+    },
+    {
+      "id": "a7u6n7hv3izky22ubtxcxapr",
+      "name": "lista_bairros",
+      "isSessionVariable": true
+    },
+    {
+      "id": "kgh2m5zja8dzr1yxr2dhylur",
+      "name": "lista_chaves",
+      "isSessionVariable": true
+    },
+    {
+      "id": "wtj9tze5r5uqpgb7r3ocwbfu",
+      "name": "lista_variantes",
+      "isSessionVariable": true
+    },
+    {
+      "id": "nqvkizzqy72wx7ptx63cfl0u",
+      "name": "lista_unidades",
+      "isSessionVariable": true
+    },
+    {
+      "id": "o6gvwrdmly4lyk83tqll8os9",
+      "name": "bairro_resolucao",
+      "isSessionVariable": true
+    },
+    {
+      "id": "dxf7kzorqqfgv0ec14m2ja04",
+      "name": "bairro_status",
+      "isSessionVariable": true
+    },
+    {
+      "id": "diuu9k9xjuy0bvr6k2vmwwyz",
+      "name": "bairro_pergunta",
+      "isSessionVariable": true
+    },
+    {
+      "id": "sq7uww5wfcpkjcslqc3c54ws",
+      "name": "resposta_sus",
+      "isSessionVariable": true
+    },
+    {
+      "id": "kp3xvkvzrgol0w82lk2n7h9g",
+      "name": "filtro_sus",
+      "isSessionVariable": true
+    },
+    {
+      "id": "rb8z3v6dixfwuxx8l2ddh0uy",
+      "name": "especialidade_busca",
+      "isSessionVariable": true
+    },
+    {
+      "id": "mhphj3muurmybd2qe4pa8hye",
+      "name": "unidade_busca",
+      "isSessionVariable": true
+    }
+  ],
+  "theme": {
+    "chat": {
+      "hostAvatar": {
+        "isEnabled": true,
+        "url": "https://s3.typebotstorage.com/public/workspaces/cmr6dxyhk00000aknsf0omopk/typebots/cmr6zauwh00010aj99p07wqpu/hostAvatar?v=1783307871330"
+      }
+    }
+  },
+  "selectedThemeTemplateId": null,
+  "settings": {
+    "general": {
+      "isBrandingEnabled": true
+    },
+    "metadata": {
+      "title": "Chatbot para Consulta de Serviços de Saúde",
+      "description": "Chatbot para Consulta de Serviços de Saúde",
+      "imageUrl": "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0MjU2MDR8MHwxfHNlYXJjaHwxNXx8aGVhbHRofGVufDB8MHx8fDE3ODMyMTM4OTF8MA&ixlib=rb-4.1.0&q=80&w=1080"
+    }
+  },
+  "createdAt": "2026-07-04T23:13:43.403Z",
+  "updatedAt": "2026-07-10T03:07:09.132Z",
+  "icon": null,
+  "folderId": null,
+  "publicId": "my-typebot-p07wqpu",
+  "customDomain": null,
+  "workspaceId": "cmr6dxyhk00000aknsf0omopk",
+  "resultsTablePreferences": {
+    "columnsOrder": [
+      "select",
+      "date",
+      "pwe9ngum5g42stq16ysaz9q0",
+      "gj5q9oomljwyqmjtgy6ouqcr",
+      "nlfdibeenrkltkszyfd76vwe",
+      "uwwn7egew6nsh38xmr4agme7",
+      "jcx9qc1071rqiifxs7p3ocph",
+      "vv4bhw8otaxxnd31xpy25ysy",
+      "vcyi8mxdmtta19hprnpcmnhc",
+      "ioo6nzsdfadbb8ge1nnfkwci",
+      "dn18ga1z9k6q3bmizltdf6c5",
+      "ylglrurpxkp8kympqbuhsc0v",
+      "jw005v17fzma4hyt5e8203z3",
+      "vzwnkaxog5282na2tg31euqs",
+      "logs"
+    ],
+    "columnsVisibility": {},
+    "columnsWidth": {
+      "ioo6nzsdfadbb8ge1nnfkwci": 580,
+      "vv4bhw8otaxxnd31xpy25ysy": 507
+    }
+  },
+  "isArchived": false,
+  "isClosed": false,
+  "whatsAppCredentialsId": null,
+  "riskLevel": 50,
+  "spaceId": null
+}

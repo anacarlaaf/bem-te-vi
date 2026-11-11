@@ -1,0 +1,9 @@
+.env
+credenciais_google.json
+*.json.key
+saida/
+logs/
+__pycache__/
+.venv/
+venv/
+.cache/

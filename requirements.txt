@@ -1,0 +1,6 @@
+requests>=2.31
+lxml>=5.0
+psycopg[binary]>=3.1
+python-dotenv>=1.0
+# Só se for gravar também no Google Sheets (destino opcional):
+gspread>=6.0

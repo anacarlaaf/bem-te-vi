@@ -1,0 +1,100 @@
+municipio,variante,bairro,origem
+Manaus,Adrianopolis,Adrianópolis,cnes
+Manaus,Adriannopolis,Adrianópolis,cnes (erro de digitação)
+Manaus,Adrianoplolis,Adrianópolis,cnes (erro de digitação)
+Manaus,Adrianopoplis,Adrianópolis,cnes (erro de digitação)
+Manaus,Arianopolis,Adrianópolis,cnes (erro de digitação)
+Manaus,Cachoeirinha,Cachoeirinha,cnes
+Manaus,Cachoerinha,Cachoeirinha,cnes (erro de digitação)
+Manaus,Cahoeirinha,Cachoeirinha,cnes (erro de digitação)
+Manaus,Bairro Da Cachoeirin,Cachoeirinha,cnes (truncado)
+Manaus,Chpada,Chapada,cnes (erro de digitação)
+Manaus,Crepo,Crespo,cnes (erro de digitação)
+Manaus,Pinta Negra,Ponta Negra,cnes (erro de digitação)
+Manaus,Tacredo Neves,Tancredo Neves,cnes (erro de digitação)
+Manaus,Tranquedo Neves,Tancredo Neves,cnes (erro de digitação)
+Manaus,Saao Geraldo,São Geraldo,cnes (erro de digitação)
+Manaus,Sao Geraldo,São Geraldo,cnes
+Manaus,Sao Fco,São Francisco,cnes (abreviado)
+Manaus,Sao Francisco,São Francisco,cnes
+Manaus,Sao Jorge,São Jorge,cnes
+Manaus,Sao Lazaro,São Lázaro,cnes
+Manaus,Sao Raimundo,São Raimundo,cnes
+Manaus,Sao Jose,São José Operário,cnes
+Manaus,Sao Jose Operario,São José Operário,cnes
+Manaus,Jappim I,Japiim,cnes (erro de digitação)
+Manaus,Col Oliveira Machado,Colônia Oliveira Machado,cnes (abreviado)
+Manaus,Colonia Oliveira Mac,Colônia Oliveira Machado,cnes (truncado)
+Manaus,Colonia Antonio Alei,Colônia Antônio Aleixo,cnes (truncado)
+Manaus,Colonia Santo Antoni,Colônia Santo Antônio,cnes (truncado)
+Manaus,Colonia Santos Anton,Colônia Santo Antônio,cnes (truncado)
+Manaus,Colonia Sto Antonio,Colônia Santo Antônio,cnes (abreviado)
+Manaus,Colonia Terra Nova,Colônia Terra Nova,cnes
+Manaus,D Pedro,Dom Pedro,cnes (abreviado)
+Manaus,D Pedro I,Dom Pedro,cnes (abreviado)
+Manaus,Dom Pedro I,Dom Pedro,cnes
+Manaus,Bairro Da Paz,Da Paz,cnes
+Manaus,Dist Industrial Ii,Distrito Industrial,cnes (abreviado)
+Manaus,Distrit Industrial I,Distrito Industrial,cnes (abreviado)
+Manaus,Km 08,Km 8,cnes
+Manaus,N S Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,N Sen Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,N Senhora Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,N Sra Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,Nossa S Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,Nossa Senhora Da Gra,Nossa Senhora das Graças,cnes (truncado)
+Manaus,Nossa Senhora Das Gr,Nossa Senhora das Graças,cnes (truncado)
+Manaus,Nossa Senhora De Gra,Nossa Senhora das Graças,cnes (truncado)
+Manaus,Nossa Sra Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,Ns Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,Ns Sra Das Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,Nsdas Gracas,Nossa Senhora das Graças,cnes (abreviado)
+Manaus,N Senhora De Fatima,Nossa Senhora de Fátima,cnes (abreviado)
+Manaus,Nossa Senhora Aparec,Nossa Senhora Aparecida,cnes (truncado)
+Manaus,Parque 10,Parque 10 de Novembro,cnes (abreviado)
+Manaus,Parque Dez,Parque 10 de Novembro,cnes (abreviado)
+Manaus,Parque 10 De Novembr,Parque 10 de Novembro,cnes (truncado)
+Manaus,Parque 10De Novembro,Parque 10 de Novembro,cnes (erro de digitação)
+Manaus,Parque Dez De Novemb,Parque 10 de Novembro,cnes (truncado)
+Manaus,Pca 14,Praça 14 de Janeiro,cnes (abreviado)
+Manaus,Praca 14,Praça 14 de Janeiro,cnes (abreviado)
+Manaus,Praca 14 De Janeiro,Praça 14 de Janeiro,cnes
+Manaus,P R A C A 1 4 D E J,Praça 14 de Janeiro,cnes (erro de digitação)
+Manaus,R Claudio Mesquita,Ramal Cláudio Mesquita,cnes (abreviado)
+Manaus,Ramal Claudio Mesqui,Ramal Cláudio Mesquita,cnes (truncado)
+Manaus,Zumbi,Zumbi dos Palmares,cnes (abreviado)
+Manaus,Zumbi Dos Palmares,Zumbi dos Palmares,cnes
+Manaus,Taruma,Tarumã,cnes
+Manaus,Taruma Acu,Tarumã-Açu,cnes
+Manaus,Petropolis,Petrópolis,cnes
+Manaus,Betania,Betânia,cnes
+Manaus,Gloria,Glória,cnes
+Manaus,Redencao,Redenção,cnes
+Manaus,Nova Esperanca,Nova Esperança,cnes
+Manaus,Lirio Do Vale,Lírio do Vale,cnes
+Manaus,Santo Antonio,Santo Antônio,cnes
+Manaus,Cidade De Deus,Cidade de Deus,cnes
+Manaus,Monte Das Oliveiras,Monte das Oliveiras,cnes
+Manaus,Morro Da Liberdade,Morro da Liberdade,cnes
+Manaus,Vila Da Prata,Vila da Prata,cnes
+Manaus,61585865301860,,cnes (inválido)
+Manaus,Manaus,,cnes (inválido)
+Manaus,Sem,,cnes (inválido)
+Manaus,Galpao Hangar C,,cnes (inválido)
+Manaus,Japiinlandia,Japiim,popular (conferir)
+Manaus,Conjunto Japiinlandia,Japiim,popular (conferir)
+Manaus,Parque Dez De Novembro,Parque 10 de Novembro,popular
+Manaus,Parque 10 De Novembro,Parque 10 de Novembro,popular
+Manaus,Praca Quatorze,Praça 14 de Janeiro,popular
+Manaus,Praca Quatorze De Janeiro,Praça 14 de Janeiro,popular
+Manaus,Vieiralves,Nossa Senhora das Graças,popular (conferir)
+Manaus,Conjunto Vieiralves,Nossa Senhora das Graças,popular (conferir)
+Manaus,Manoa,Cidade Nova,popular (conferir)
+Manaus,Conjunto Manoa,Cidade Nova,popular (conferir)
+Manaus,Eldorado,Parque 10 de Novembro,popular (conferir)
+Manaus,Conjunto Eldorado,Parque 10 de Novembro,popular (conferir)
+Manaus,Sao Jose 1,São José Operário,popular
+Manaus,Sao Jose 2,São José Operário,popular
+Manaus,Sao Jose Operario 2,São José Operário,popular
+Manaus,Distrito,Distrito Industrial,popular
+Manaus,Ponta Negra,Ponta Negra,cnes
