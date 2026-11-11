@@ -33,12 +33,12 @@ bem-te-vi/
 │   ├── gerar_typebot.py                  gera o fluxo de planilha
 │   └── simular_bot.py                    simula conversas sem publicar nada
 ├── scripts/
-│   ├── atualizar.sh             alternativa ao GitHub Actions (cron)
+│   ├── atualizar.sh             roda a atualização e grava o log (usado pelo agendamento)
+│   ├── vm/                      instalação e agendamento numa VM (systemd)
 │   └── banco_teste.sh           Postgres local para testes
-├── docs/                        documentação do MVP e da integração original
-└── .github/workflows/           agendamento diário
+└── docs/                        documentação do MVP e da integração original
 
-Gerados na execução (fora do git): saida/ (CSV), logs/ (cron), .cache/ (base e banco de teste)
+Gerados na execução (fora do git): saida/ (CSV), logs/, .cache/ (base e banco de teste)
 ```
 
 Todos os comandos abaixo são rodados **na raiz do projeto**.
@@ -78,7 +78,7 @@ No `.env`, preencha:
 ```
 
 Use o **Session pooler**, não a conexão direta: a conexão direta do Supabase só funciona em IPv6,
-e o GitHub Actions não tem IPv6.
+e VMs na nuvem (inclusive a da Oracle) normalmente só têm IPv4.
 
 ### 3. Gerar e importar o fluxo do bot
 
@@ -90,26 +90,71 @@ Importe `typebot/typebot-bem-te-vi-supabase.json` no Typebot **como um bot novo*
 O script imprime de onde tirou a URL e a chave. Sem as variáveis no `.env`, ele reaproveita as do
 bloco que grava `interacoes` no seu export.
 
-### 4. Agendar no GitHub Actions
+### 4. Agendar numa VM da Oracle Cloud
 
-1. Suba o projeto para um repositório **privado** no GitHub.
-2. *Settings → Secrets and variables → Actions*:
-   - **Secrets**: `CNES_SENHA` e `SUPABASE_DB_URL`. Se também for usar a planilha: `GOOGLE_CREDENTIALS_JSON`.
-   - **Variables**, só se for usar a planilha: `GOOGLE_SHEET_ID` e `GOOGLE_SHEET_ABA`.
-3. *Actions → Atualizar base CNES → Run workflow*: rode uma vez com "Só simular" marcado e depois sem marcar.
+**Criar a VM** (console da Oracle Cloud → *Compute → Instances → Create instance*):
+- **Região no Brasil** (São Paulo ou Vinhedo). Isso evita bloqueio de IP estrangeiro pelos serviços `gov.br`.
+- **Imagem:** Ubuntu 22.04 ou 24.04.
+- **Formato:** qualquer um do *Always Free* serve. O pipeline usa pouca memória e roda cerca de 3 minutos por dia.
+- **Chave SSH:** use a sua ou baixe a gerada. Não precisa abrir nenhuma porta além da 22 (SSH), porque
+  a VM só faz conexões de saída (CNES e Supabase).
 
-O job roda todo dia às 05:00 de Manaus e guarda o CSV como artefato por 14 dias.
+> **Atenção:** a Oracle pode recuperar VMs *Always Free* que ficam ociosas por muito tempo, e um job
+> de 3 minutos por dia parece ocioso. Para evitar isso, converta a conta para *Pay As You Go*. Os
+> recursos *Always Free* continuam gratuitos; confirme as regras atuais no site da Oracle.
 
-> **Risco a verificar no primeiro teste:** alguns serviços `gov.br` bloqueiam IPs de fora do Brasil,
-> e os runners do GitHub ficam nos EUA. Se o job falhar com timeout ao consultar o CNES, use o cron.
+**Instalar o projeto na VM** (no seu computador, troque `IP_DA_VM`):
 
-**Alternativa: cron numa máquina no Brasil.** Adicione ao `crontab -e`:
-
+```bash
+ssh ubuntu@IP_DA_VM
+git clone https://github.com/anacarlaaf/bem-te-vi.git   # repositório privado: use um token ou deploy key
+exit
+scp .env ubuntu@IP_DA_VM:bem-te-vi/.env                  # leva as credenciais sem passar pelo git
 ```
-0 5 * * * /caminho/para/bem-te-vi/scripts/atualizar.sh
+
+No `.env` da VM, a `SUPABASE_DB_URL` **precisa ser a do Session pooler** (veja o passo 2).
+
+```bash
+ssh ubuntu@IP_DA_VM
+cd bem-te-vi
+bash scripts/vm/instalar.sh            # pacotes, Python, agendamento diário às 05:00 de Manaus
+scripts/atualizar.sh --simular         # teste: coleta e valida, não grava
+sudo systemctl start bemtevi-atualizar.service   # primeira carga de verdade
 ```
 
-Os logs ficam em `logs/AAAA-MM-DD.log`.
+**Acompanhar:**
+
+| Para | Comando na VM |
+|---|---|
+| Ver a próxima execução | `systemctl list-timers bemtevi-atualizar.timer` |
+| Ver o resultado da última | `journalctl -u bemtevi-atualizar.service -n 50 --no-pager` |
+| Ver o log de um dia | `cat logs/AAAA-MM-DD.log` |
+| Atualizar o código ou os sinônimos | `git pull && bash scripts/vm/instalar.sh` |
+
+**Aviso de falha (recomendado):** a VM não manda e-mail sozinha. Crie um check gratuito no
+[healthchecks.io](https://healthchecks.io) com período de 1 dia e coloque a URL dele em
+`HEALTHCHECK_URL` no `.env` da VM. Ele avisa por e-mail se a atualização falhar ou não rodar.
+
+Sem a VM, o mesmo script roda via cron em qualquer máquina Linux:
+`0 5 * * * /caminho/para/bem-te-vi/scripts/atualizar.sh`.
+
+### Com que frequência rodar
+
+Os dados do CNES mudam devagar e chegam em lotes. Na análise de 11/11/2026, considerando a data de
+atualização de cada estabelecimento:
+- cerca de 14 atualizações por dia útil no estado inteiro, e quase nenhuma no fim de semana;
+- 0,3% da base atualizada na última semana, 9,5% no último mês;
+- nenhuma data posterior a 05/11, mesmo com dias úteis depois. Ou seja, o serviço publica mudanças
+  em lotes, não em tempo real.
+
+**Recomendação: uma vez por dia.** O custo é baixo (cerca de 3 minutos), e uma mudança publicada chega ao bot em
+no máximo 24 horas. O serviço não permite buscar só o que mudou, então cada execução consulta todos
+os estabelecimentos. Rodar de hora em hora sobrecarregaria o serviço do Ministério sem ganho real.
+
+Cada execução registra no log e na tabela `bt_meta` (`unidades_novas`, `unidades_removidas`,
+`unidades_alteradas`) o que mudou de fato. Depois de algumas semanas, esse histórico mostra o ritmo
+real. Se quase todos os dias registrarem zero, dá para passar para segunda a sexta (no
+`scripts/vm/bemtevi-atualizar.timer`, use `OnCalendar=Mon..Fri *-*-* 05:00:00 America/Manaus`).
 
 ## Segurança da atualização
 
@@ -119,7 +164,8 @@ O pipeline **não grava nada** se:
 - a base nova tem menos de 80% das unidades da atual (`PROPORCAO_MINIMA`);
 - as funções SQL normalizam texto diferente do Python. Isso acontece se o `001_bemtevi.sql` estiver desatualizado no Supabase.
 
-Nesses casos o bot continua com os dados do dia anterior, o job falha e o GitHub manda um e-mail.
+Nesses casos o bot continua com os dados do dia anterior e a execução termina com erro, que fica no
+log e dispara o aviso do healthchecks.io, se configurado.
 Quando só alguns estabelecimentos falham, **a linha do dia anterior é reaproveitada**.
 No Supabase, a troca acontece numa única transação: quem está consultando vê a base antiga até o
 último instante, e se algo falhar no meio nada muda.

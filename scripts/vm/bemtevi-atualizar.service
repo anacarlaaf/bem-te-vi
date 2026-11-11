@@ -1,0 +1,12 @@
+[Unit]
+Description=Bem-te-vi: atualização diária da base CNES
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=__USUARIO__
+WorkingDirectory=__PASTA__
+ExecStart=__PASTA__/scripts/atualizar.sh
+TimeoutStartSec=2h
+Nice=10

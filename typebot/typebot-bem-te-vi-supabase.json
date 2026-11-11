@@ -1490,12 +1490,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_buscar_unidades",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_buscar_unidades",
               "headers": [
                 {
                   "id": "qiyhe7ur23gdppq0y9dom5ig",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "ofgq5c34dxtad1ior56fao72",
@@ -1574,12 +1574,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_resolver_bairro",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_resolver_bairro",
               "headers": [
                 {
                   "id": "b9mx2x18hafeyuhz1gv0e38d",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "a7u6n7hv3izky22ubtxcxapr",
@@ -1738,12 +1738,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_resolver_bairro",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_resolver_bairro",
               "headers": [
                 {
                   "id": "momv2xcdyk0x65mufm8zov7l",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "mxlez896dysal8m1g9fk2st0",
@@ -1862,12 +1862,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_buscar_unidades",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_buscar_unidades",
               "headers": [
                 {
                   "id": "uc1xi04b7p47b42g05kbkv7m",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "o9tr74qgefqjg02u1g463sdy",
@@ -2008,12 +2008,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_resolver_bairro",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_resolver_bairro",
               "headers": [
                 {
                   "id": "rsryo4rcb1kjtgq01tee13n3",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "b1php0xi5bj5d5e3h0y4vpw2",
@@ -2172,12 +2172,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_resolver_bairro",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_resolver_bairro",
               "headers": [
                 {
                   "id": "yvt43pt5r5rc6zs62ywe1g98",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "zgbcyh3fvl03dut4s7azv2ef",
@@ -2286,12 +2286,12 @@
             "timeout": 20,
             "webhook": {
               "method": "POST",
-              "url": "https://mfftubpjwryareahiaee.supabase.co/rest/v1/rpc/bt_detalhar_unidade",
+              "url": "https://qzjixigrxbdidzvsdmnr.supabase.co/rest/v1/rpc/bt_detalhar_unidade",
               "headers": [
                 {
                   "id": "zkszbffzzdvg7oq2zdo74v1q",
                   "key": "apikey",
-                  "value": "sb_publishable_trQuavnxiDwVMIT0s55oUQ_VMzRFvOK"
+                  "value": "sb_publishable_NJl6b-BFspiRCo8m9Y13OQ_OrYGAj8z"
                 },
                 {
                   "id": "vvs8a0tpv726yg3dxvl5pvyi",

@@ -1,0 +1,11 @@
+[Unit]
+Description=Bem-te-vi: agenda a atualização todo dia às 05:00 de Manaus
+
+[Timer]
+OnCalendar=*-*-* 05:00:00 America/Manaus
+# Se a VM estava desligada no horário, roda assim que ligar
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

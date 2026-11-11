@@ -388,7 +388,8 @@ def extrair_especialidades(xml):
         valor = _texto(desc)
         if valor and valor not in especialidades:
             especialidades.append(valor)
-    return " | ".join(especialidades)
+    # Ordem alfabética: o CNES devolve a lista em ordem variável a cada chamada
+    return " | ".join(sorted(especialidades))
 
 
 def extrair(xml):

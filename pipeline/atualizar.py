@@ -65,6 +65,26 @@ def montar_registros(resultado, atuais):
     return registros, reaproveitados
 
 
+CAMPOS_COMPARADOS = ["nome", "endereco", "telefone", "especialidades",
+                     "tipo_unidade", "atende_sus", "bairro_oficial"]
+
+
+def comparar(registros, atuais):
+    """Quantas unidades realmente mudaram desde a última carga."""
+    def especialidades(r):
+        return {e.strip() for e in str(r.get("especialidades", "")).split("|") if e.strip()}
+    novos = {r["cnes"]: r for r in registros}
+    alterados = [
+        c for c in novos.keys() & atuais.keys()
+        if any(str(novos[c].get(f, "")) != str(atuais[c].get(f, ""))
+               for f in CAMPOS_COMPARADOS if f != "especialidades")
+        or especialidades(novos[c]) != especialidades(atuais[c])
+    ]
+    return {"novas": len(novos.keys() - atuais.keys()),
+            "removidas": len(atuais.keys() - novos.keys()),
+            "alteradas": len(alterados)}
+
+
 def validar(resultado, total_novo, total_atual):
     if resultado["municipios_com_erro"]:
         raise AbortarAtualizacao(
@@ -114,6 +134,10 @@ def main():
     log.info("Coletados: %d | falhas de detalhe: %d (reaproveitados de ontem: %d) | bairros: %d",
              len(resultado["registros"]), len(resultado["cnes_com_erro"]),
              reaproveitados, len(bairros))
+    mudancas = comparar(registros, atuais) if atuais else {}
+    if mudancas:
+        log.info("Mudanças desde a última carga: %d novas, %d removidas, %d alteradas",
+                 mudancas["novas"], mudancas["removidas"], mudancas["alteradas"])
 
     try:
         validar(resultado, len(registros), 0 if args.limite else len(atuais))
@@ -131,6 +155,7 @@ def main():
         "total_estabelecimentos": len(registros),
         "falhas_reaproveitadas": reaproveitados,
         "duracao_min": round((datetime.now(FUSO) - inicio).seconds / 60, 1),
+        **{f"unidades_{k}": v for k, v in mudancas.items()},
     }
     falhas = []
     for destino in destinos:
