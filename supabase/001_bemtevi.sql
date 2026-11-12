@@ -233,7 +233,7 @@ create or replace function public.bt_buscar_unidades(
     p_bairro    text default '',
     p_termo     text default '',
     p_so_sus    text default 'nao',
-    p_limite    integer default 5
+    p_limite    integer default 10
 )
 returns jsonb language plpgsql stable security definer
 set search_path = public, extensions
@@ -243,7 +243,7 @@ declare
     v_bairro  text := nullif(nullif(btrim(coalesce(p_bairro, '')), '-'), '');
     v_sus     boolean := lower(coalesce(p_so_sus, '')) in ('sim', 'true', '1', 's');
     v_tem_termo boolean := btrim(coalesce(p_termo, '')) <> '';
-    v_limite  integer := least(greatest(coalesce(p_limite, 5), 1), 20);
+    v_limite  integer := least(greatest(coalesce(p_limite, 10), 1), 20);
     v_fuzzy   boolean;
     v_modo    text;
     v_total   integer;
