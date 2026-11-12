@@ -1,14 +1,91 @@
-# Bem-te-vi: base de unidades de saúde do bot
+<p align="center">
+  <img src="docs/img/logo.png" alt="Logo do Bem-te-vi" width="150">
+</p>
+
+<h1 align="center">Bem-te-vi</h1>
+
+<p align="center">
+  <strong>Assistente de conversa que ajuda quem mora em Manaus a encontrar unidades de saúde,<br>
+  especialidades e atendimento pelo SUS, com dados públicos do CNES.</strong>
+</p>
+
+<p align="center">
+  <a href="https://typebot.co/chatbot-bem-te-vi-a0csiv3"><img alt="Conversar com o bot" src="https://img.shields.io/badge/conversar_com_o_bot-typebot-EEB705?style=for-the-badge"></a>
+  <img alt="Dados: CNES / DATASUS" src="https://img.shields.io/badge/dados-CNES%20%2F%20DATASUS-1F6FB2?style=for-the-badge">
+  <img alt="Atualização a cada 3 dias" src="https://img.shields.io/badge/atualiza%C3%A7%C3%A3o-a%20cada%203%20dias-2E8B57?style=for-the-badge">
+</p>
+
+<p align="center">
+  <a href="#experimente">Experimente</a> ·
+  <a href="#o-que-o-bot-faz">O que faz</a> ·
+  <a href="#como-funciona">Como funciona</a> ·
+  <a href="#colocar-no-ar-uma-vez">Colocar no ar</a> ·
+  <a href="#como-a-busca-funciona">Busca</a> ·
+  <a href="#pendências">Pendências</a>
+</p>
+
+---
+
+## Por que existe
+
+Saber **qual posto atende no seu bairro**, se ele tem **dentista, pré-natal ou psicólogo** e se o
+atendimento é **pelo SUS** costuma exigir ligar para vários lugares ou procurar em sites difíceis de
+usar no celular. O Bem-te-vi responde essas perguntas numa conversa simples, em português do dia a
+dia, sem cadastro e sem instalar nada.
+
+## Experimente
+
+<table>
+  <tr>
+    <td align="center" width="38%">
+      <a href="https://typebot.co/chatbot-bem-te-vi-a0csiv3">
+        <img src="docs/qr-code.png" alt="QR code para abrir o Bem-te-vi" width="220">
+      </a>
+      <br><br>
+      <strong>Aponte a câmera do celular</strong><br>
+      ou acesse<br>
+      <a href="https://typebot.co/chatbot-bem-te-vi-a0csiv3">typebot.co/chatbot-bem-te-vi-a0csiv3</a>
+    </td>
+    <td align="center">
+      <img src="docs/img/conversa.png" alt="Conversa com o Bem-te-vi: a pessoa pede as especialidades da unidade 'Ivone' e o bot responde com nome, endereço, telefone e a lista de especialidades da USF Enfermeira Ivone Lima dos Santos" width="460">
+    </td>
+  </tr>
+</table>
+
+## O que o bot faz
+
+<p align="center">
+  <img src="docs/img/menu.png" alt="Menu inicial do Bem-te-vi com as opções: Encontrar um posto de saúde, Horários de atendimento, Vacinação, Consultar Especialidades, Documentos necessários e Outra dúvida" width="620">
+</p>
+
+- **Encontra postos de saúde por bairro**, com endereço e telefone.
+- **Procura especialidades**: o que uma unidade oferece, ou onde há um serviço ("dentista", "pré-natal").
+- **Pergunta se a pessoa quer só unidades do SUS** antes de mostrar o resultado.
+- **Entende o jeito que as pessoas escrevem**: com ou sem acento, com erro de digitação ("dentsta"),
+  no plural, com palavras do dia a dia ("dentista" acha "saúde bucal") e com nomes populares de bairro.
+- **Mostra até 10 unidades** por busca e oferece botões quando o bairro digitado é ambíguo.
+- **Fica atualizado sozinho**: a base é refeita a partir do CNES a cada 3 dias.
+
+## Como funciona
 
 ```
 CNES (SOAP) ──> pipeline/ ──> Supabase (tabelas + funções de busca) ──> Typebot (chamadas HTTP)
          a cada 3 dias, às 05:00    └──> Google Sheets (opcional, cópia para a equipe)
 ```
 
-O pipeline coleta os estabelecimentos do Amazonas no CNES a cada 3 dias e grava no Supabase.
-O bot (Typebot) não lê tabelas: ele chama três funções do banco, que fazem a busca e devolvem a
-resposta já formatada. Hoje o bot responde só sobre **Manaus** (variável `municipio_busca` no
-primeiro bloco do fluxo), embora a base tenha o estado inteiro.
+| | |
+|---|---|
+| **Fonte** | Cadastro Nacional de Estabelecimentos de Saúde (CNES / DATASUS), serviço público oficial |
+| **Cobertura da base** | 62 municípios do Amazonas, cerca de 3.400 estabelecimentos (1.700 em Manaus) |
+| **Cobertura do bot** | Manaus (variável `municipio_busca` no primeiro bloco do fluxo) |
+| **Atualização** | automática, a cada 3 dias, numa VM da Oracle Cloud |
+| **Conversa** | Typebot, que chama funções do Supabase pela API |
+
+O pipeline coleta os estabelecimentos no CNES e grava no Supabase. O bot não lê tabelas: ele chama
+três funções do banco, que fazem a busca e devolvem a resposta já formatada. Se alguma coisa parecer
+errada na coleta, nada é gravado e o bot continua com os dados anteriores.
+
+### Estrutura do repositório
 
 ```
 bem-te-vi/
@@ -36,12 +113,14 @@ bem-te-vi/
 │   ├── atualizar.sh             roda a atualização e grava o log (usado pelo agendamento)
 │   ├── vm/                      instalação e agendamento numa VM (systemd)
 │   └── banco_teste.sh           Postgres local para testes
-└── docs/                        documentação do MVP e da integração original
+└── docs/                        documentação do MVP, da integração original e imagens
 
 Gerados na execução (fora do git): saida/ (CSV), logs/, .cache/ (base e banco de teste)
 ```
 
-Todos os comandos abaixo são rodados **na raiz do projeto**.
+---
+
+> As seções a seguir são para quem mantém o projeto. Todos os comandos são rodados **na raiz do projeto**.
 
 ## Colocar no ar (uma vez)
 
