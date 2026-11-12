@@ -2,17 +2,17 @@
 
 ```
 CNES (SOAP) ──> pipeline/ ──> Supabase (tabelas + funções de busca) ──> Typebot (chamadas HTTP)
-             todo dia às 05:00      └──> Google Sheets (opcional, cópia para a equipe)
+         a cada 3 dias, às 05:00    └──> Google Sheets (opcional, cópia para a equipe)
 ```
 
-O pipeline coleta diariamente os estabelecimentos do Amazonas no CNES e grava no Supabase.
+O pipeline coleta os estabelecimentos do Amazonas no CNES a cada 3 dias e grava no Supabase.
 O bot (Typebot) não lê tabelas: ele chama três funções do banco, que fazem a busca e devolvem a
 resposta já formatada. Hoje o bot responde só sobre **Manaus** (variável `municipio_busca` no
 primeiro bloco do fluxo), embora a base tenha o estado inteiro.
 
 ```
 bem-te-vi/
-├── pipeline/                    atualização diária (Python)
+├── pipeline/                    atualização da base (Python)
 │   ├── atualizar.py             ponto de entrada: coleta + travas + grava nos destinos
 │   ├── coletar_cnes_am.py       consulta o CNES (62 municípios do AM)
 │   ├── normalizacao.py          regras de busca: acento, plural, sinônimos, bairro oficial
@@ -95,7 +95,7 @@ bloco que grava `interacoes` no seu export.
 **Criar a VM** (console da Oracle Cloud → *Compute → Instances → Create instance*):
 - **Região no Brasil** (São Paulo ou Vinhedo). Isso evita bloqueio de IP estrangeiro pelos serviços `gov.br`.
 - **Imagem:** Ubuntu 22.04 ou 24.04.
-- **Formato:** qualquer um do *Always Free* serve. O pipeline usa pouca memória e roda cerca de 3 minutos por dia.
+- **Formato:** qualquer um do *Always Free* serve. O pipeline usa pouca memória e roda cerca de 3 minutos a cada 3 dias.
 - **Chave SSH:** use a sua ou baixe a gerada. Não precisa abrir nenhuma porta além da 22 (SSH), porque
   a VM só faz conexões de saída (CNES e Supabase).
 
@@ -107,7 +107,7 @@ bloco que grava `interacoes` no seu export.
 
 ```bash
 ssh ubuntu@IP_DA_VM
-git clone https://github.com/anacarlaaf/bem-te-vi.git   # repositório privado: use um token ou deploy key
+git clone https://github.com/anacarlaaf/bem-te-vi.git   # repositório público: não pede senha
 exit
 scp .env ubuntu@IP_DA_VM:bem-te-vi/.env                  # leva as credenciais sem passar pelo git
 ```
@@ -117,7 +117,7 @@ No `.env` da VM, a `SUPABASE_DB_URL` **precisa ser a do Session pooler** (veja o
 ```bash
 ssh ubuntu@IP_DA_VM
 cd bem-te-vi
-bash scripts/vm/instalar.sh            # pacotes, Python, agendamento diário às 05:00 de Manaus
+bash scripts/vm/instalar.sh            # pacotes, Python e agendamento (verifica todo dia às 05:00 de Manaus)
 scripts/atualizar.sh --simular         # teste: coleta e valida, não grava
 scripts/atualizar.sh --forcar          # primeira carga de verdade (ignora o intervalo)
 ```
@@ -186,13 +186,21 @@ unidades agora..."* e volta ao menu.
 
 ### Bairros: `bt_resolver_bairro`
 
+**Regra:** o bot só trabalha com **bairros oficiais**, do jeito que as unidades estão cadastradas no
+CNES. Conjuntos, residenciais e nomes populares só funcionam se houver um sinônimo apontando para o
+bairro oficial onde ficam. Não use base de CEP nem nome de conjunto para decidir o bairro.
+
 O pipeline converte o bairro do CNES no **bairro oficial**. Ele corrige as grafias listadas em
 `dados/sinonimos_bairros.csv` e junta subdivisões: "Cidade Nova I/II/1" vira "Cidade Nova". O sufixo
 só é removido se o que sobra também é um bairro, então "Parque 10" não vira "Parque".
 
+Antes de comparar, o texto digitado é limpo: a pontuação é ignorada, e palavras genéricas no início
+também ("bairro", "conjunto", "conj.", "cj", "residencial", "comunidade", "loteamento", "no", "do"...).
+"Conj. Ouro Verde" e "no bairro do Coroado" funcionam, e "Da Paz" continua sendo reconhecido.
+
 | O que a pessoa digita | O que o bot faz |
 |---|---|
-| Nome exato ou variação conhecida ("Cidade Nova", "cidade nova 2", "Japiinlândia") | Usa esse bairro, com comparação **exata** |
+| Nome exato ou variação conhecida ("Cidade Nova", "cidade nova 2", "Ouro Verde" → Coroado) | Usa esse bairro, com comparação **exata** |
 | Começo de palavra que bate com um só bairro ("japi") | Usa esse bairro |
 | Texto que bate com vários bairros ("nova", "são") | **Botões** com até 6 bairros, os com mais unidades primeiro, e "Nenhum desses" |
 | Erro de digitação ("japim") | "Não achei o bairro... Você quis dizer:" com botões |
@@ -210,15 +218,30 @@ Se nada for encontrado, uma segunda tentativa tolera erro de digitação ("dents
 
 Ordem de tentativa: no bairro → sem bairro (só na busca por especialidade) → nada encontrado.
 
+**Resultado:** até **10 unidades**, em ordem alfabética, com "Mostrando 10 de N" quando houver mais.
+O limite é o padrão de `p_limite` em `bt_buscar_unidades` (`supabase/001_bemtevi.sql`); para mudar,
+edite esse valor e reaplique o SQL. Não precisa mexer no Typebot.
+
 ### Unidade pelo nome: `bt_detalhar_unidade`
 
 Procura pelo nome normalizado, com tolerância a erro de digitação ("maternidade balbna").
 
 ### Editar sinônimos
 
-Edite `dados/sinonimos_termos.csv` ou `dados/sinonimos_bairros.csv`. A próxima atualização diária
-aplica a mudança. **Não precisa mexer no Typebot nem no SQL.** As linhas marcadas como
-`popular (conferir)` são palpites que alguém que conhece Manaus deve validar.
+Edite `dados/sinonimos_termos.csv` ou `dados/sinonimos_bairros.csv`. Em sinônimos de bairro, o
+destino precisa ser um **bairro oficial** que já aparece nas unidades (veja a regra acima).
+
+Para valer no bot:
+1. dê `git push`;
+2. na VM, rode `git pull && bash scripts/vm/instalar.sh`;
+3. espere a próxima atualização, ou rode `scripts/atualizar.sh --forcar` na VM.
+
+**Não precisa mexer no Typebot nem no SQL.** Mas a VM **precisa** receber o arquivo novo: a cada
+atualização, ela refaz a lista de bairros do Supabase a partir dos arquivos que tem. Se ela rodar
+com a versão antiga, o sinônimo novo some.
+
+As linhas marcadas como `popular (conferir)` são palpites que ainda precisam ser validados por
+alguém da equipe.
 
 ### Mudar as regras de normalização
 
@@ -239,6 +262,16 @@ scripts/banco_teste.sh parar
 O simulador percorre o fluxo como o Typebot e executa as chamadas no banco local, com as mesmas
 permissões da chave pública. Para simular o fluxo antigo de planilha:
 `SIMULADOR_FLUXO=planilha .venv/bin/python typebot/simular_bot.py ...`, que usa `.cache/base.csv`.
+
+## O que fazer quando mudar...
+
+| Mudou | Precisa |
+|---|---|
+| sinônimos (`dados/*.csv`) | `git push`, depois `git pull` na VM. Vale na próxima atualização |
+| SQL (`supabase/001_bemtevi.sql`) | colar no **SQL Editor** do Supabase e clicar em **Run** (e dar `git push`) |
+| código do pipeline (`pipeline/`, `scripts/`) | `git push`, depois `git pull && bash scripts/vm/instalar.sh` na VM |
+| textos ou fluxo do bot | gerar o fluxo de novo (abaixo), importar no Typebot e publicar |
+| intervalo de atualização | editar `INTERVALO_DIAS` no `.env` da VM |
 
 ## Atualizar o fluxo depois de editar o bot no Typebot
 
@@ -263,4 +296,9 @@ antigo depende disso.
 - Horário de funcionamento e salas de vacina não são retornados por esses serviços.
 - `bt_detalhar_unidade` devolve só a unidade mais parecida. Se houver várias com nomes parecidos,
   a pessoa não escolhe.
-# bem-te-vi
+- Na busca de posto, a ordem é alfabética. Por isso, unidades que não são postos (farmácia,
+  CAPS, centrais) podem aparecer antes das USF/UBS. Em 9 bairros não há nenhuma unidade básica
+  cadastrada.
+- Sinônimos de bairro marcados como `popular (conferir)` (Japiinlândia, Vieiralves, Manoa e Eldorado)
+  ainda não foram validados pela equipe.
+- A unidade CNES 4766024 sempre retorna erro do próprio serviço do CNES e por isso não entra na base.
